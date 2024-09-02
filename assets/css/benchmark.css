@@ -1,4 +1,4 @@
-.question-text {
+#question-text {
   font-size: 3.75rem;
   width: 50%;
   text-align: center;
@@ -6,7 +6,7 @@
   margin-bottom: 5rem;
 }
 
-.question-text span {
+#question-text span {
   font-weight: 600;
 }
 
@@ -24,11 +24,12 @@
   padding: 1.5rem 2.5rem;
   border-width: 2px;
   border-style: solid;
+  /* border-image: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0.05) 100%) 1; */
   border-radius: 45px;
   text-align: center;
-  /* border-image: linear-gradient(to bottom, white 0%, rgba(255, 255, 255, 0.05) 100%) 1; */
   font-weight: 600;
   background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
 }
 
 .answer-wrapper:nth-of-type(odd) {
@@ -58,4 +59,10 @@ footer {
 
 #total-questions {
   color: rgba(144, 0, 128, 1);
+}
+
+#next-question {
+  margin-inline: auto;
+  display: block;
+  margin-top: 2rem;
 }

@@ -16,7 +16,7 @@ body {
 
 header,
 main {
-  width: 90%;
+  width: 70%;
   margin-inline: auto;
 }
 
@@ -103,6 +103,7 @@ form label {
   color: white;
   border: 2px solid white;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .active-btn {
