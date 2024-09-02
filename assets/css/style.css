@@ -60,7 +60,7 @@ h3 {
   margin-bottom: 1rem;
 }
 
-p {
+.intro-text {
   width: 580px;
   min-width: 580px;
   margin-bottom: 3rem;
@@ -103,6 +103,7 @@ form label {
   color: white;
   border: 2px solid white;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .active-btn {

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/benchmark.css" />
+    <title>Benchmark page</title>
+  </head>
+  <body>
+    <header>
+      <img class="logo" src="./assets/images/epicode_logo.png" alt="epicode logo" />
+    </header>
+    <main>
+      <h4 id="question-text">How can I create a <span>checkbox in HTML?</span></h4>
+      <div id="answers">
+        <!-- <div class="answer-wrapper">
+          <div class="answer highlighted">&lt;input type = "check"&gt;</div>
+        </div>
+        <div class="answer-wrapper">
+          <div class="answer">&lt;input type = "checkbox"&gt;</div>
+        </div>
+        <div class="answer-wrapper">
+          <div class="answer">&lt;checkbox&gt;</div>
+        </div>
+        <div class="answer-wrapper">
+          <div class="answer">&lt;input type = "button"&gt;</div>
+        </div> -->
+      </div>
+      <button id="next-question" class="default-btn" type="submit">Proceed</button>
+    </main>
+    <footer>
+      <div class="question-counter">
+        <p>Question <span id="current-question">1</span> <span id="total-questions">/ 10</span></p>
+      </div>
+    </footer>
+    <script src="./js/questions.js"></script>
+    <script src="./js/benchmark.js"></script>
+  </body>
+</html>
