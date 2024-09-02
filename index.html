@@ -3,9 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Benchmark Platform</title>
   </head>
   <body>
-    <h1>Benchmark Platform</h1>
+    <header>
+      <img class="logo" src="./assets/images/epicode_logo.png" alt="epicode logo" />
+    </header>
+    <main>
+      <h1 class="titles">Welcome to <span>your exam</span></h1>
+      <h3>Instructions</h3>
+      <p>We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
+      <ul>
+        <li>Each question is <span>timed</span> and can only be <span>answered once</span>.</li>
+        <li>Changing browser tab or opening other windows will <span>invalidate the question</span>.</li>
+        <li>This exam will take approx. <span>0-5 minutes</span>.</li>
+      </ul>
+      <form>
+        <input id="checkbox" type="checkbox" />
+        <label for="checkbox">I promise to answer myselft without help from anyone</label>
+        <a class="default-btn" href="./benchmark-page.html">Proceed</a>
+      </form>
+    </main>
   </body>
 </html>
