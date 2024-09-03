@@ -1,7 +1,5 @@
-
 let stars = Array.from(document.querySelectorAll('.star'));
-console.log(stars)
-
+console.log(stars);
 
 function resetStars() {
     stars.forEach(function (star) {
@@ -9,27 +7,35 @@ function resetStars() {
     });
 }
 
+function setStarsUpTo(index) {
+    resetStars();
+    for (let j = 0; j <= index; j++) {
+        stars[j].classList.add("selected");
+    }
+}
+
 window.onload = () => {
-
-    // stars.forEach(star =>
-    //     star.onmouseover = function () {
-    //         // resetStars();
-    //         for (let i = 0; i <= stars.length; i++) {
-    //             console.log(i);
-    //             star.classList.add('selected');
-    //         }
-
-
-    //     });
+    let selectedIndex = -1;
 
     for (let i = 0; i < stars.length; i++) {
         stars[i].onmouseover = function () {
-            for (let j = 0; j <= i; j++) {
-                stars[j].classList.add("selected")
+            if (selectedIndex === -1) {
+                setStarsUpTo(i);
             }
-        }
+        };
+
+        stars[i].onmouseout = function () {
+            if (selectedIndex === -1) {
+                resetStars();
+            }
+        };
+
+        stars[i].onclick = function () {
+            selectedIndex = i;
+            setStarsUpTo(i);
+        };
     }
-}
+};
 
 
 

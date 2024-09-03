@@ -10,10 +10,15 @@ h2 {
 }
 
 .fp {
+  font-weight: 100;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
   margin-bottom: 3rem;
   line-height: 2.5rem;
 }
 .titlef-b {
+  font-weight: bold;
+  font-size: 3em;
   line-height: 4rem;
   width: 1000px;
   min-width: 500px;
@@ -29,7 +34,7 @@ h2 {
   width: 100%;
   max-width: 580px;
   font-size: 16px;
-  color: black;
+  color: rgb(249, 247, 247);
   background: transparent;
 }
 
@@ -57,6 +62,7 @@ h2 {
 
 .star {
   font-size: 2rem;
+  /* color: #0b113b; */
   color: transparent;
   display: inline-block;
   opacity: 0.1;
