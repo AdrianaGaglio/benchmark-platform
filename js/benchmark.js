@@ -6,27 +6,29 @@ const getQuestions = (level) => {
   // mostro il testo della domanda
   const questionText = document.getElementById("question-text");
   questionText.innerText = questionsArray[index].question;
-  // creo la risposta corretta
-  const answerContainer = document.getElementById("answers");
-  const correctAnswerWrap = document.createElement("div");
-  correctAnswerWrap.className = "answer-wrapper";
-  const correctAnswer = document.createElement("div");
-  correctAnswer.className = "answer";
-  correctAnswer.innerText = questionsArray[index].correct_answer;
-  correctAnswerWrap.appendChild(correctAnswer);
-  answerContainer.appendChild(correctAnswerWrap);
-  correctAnswer.onclick = () => {
-    correctAnswer.classList.add("highlighted");
-  };
-  for (let j = 0; j < questionsArray[index].incorrect_answers.length; j++) {
-    const answerWrap = document.createElement("div");
-    answerWrap.className = "answer-wrapper";
-    const answer = document.createElement("div");
-    answer.className = "answer";
-    answer.innerText = questionsArray[index].incorrect_answers[j];
-    answerWrap.appendChild(answer);
-    answerContainer.appendChild(answerWrap);
+  const answersContainer = document.getElementById("answers");
+  // prendo tutte le possibili risposte correlate alla domanda
+  const tempAnswersArray = [];
+  tempAnswersArray.push(questionsArray[index].correct_answer);
+  for (let i = 0; i < questionsArray[index].incorrect_answers.length; i++) {
+    tempAnswersArray.push(questionsArray[index].incorrect_answers[i]);
   }
+  // inserisco randomicamente le domande nella pagina
+  for (let j = 0; j < tempAnswersArray.length; j++) {
+    const numOfLoops = tempAnswersArray.length;
+    for (let k = 0; k < numOfLoops; k++) {
+      const randomIndex = tempAnswersArray.length > 1 ? Math.floor(Math.random() * tempAnswersArray.length) : 0;
+      const answerWrap = document.createElement("div");
+      answerWrap.className = "answer-wrapper";
+      const answer = document.createElement("div");
+      answer.className = "answer";
+      answer.innerText = tempAnswersArray[randomIndex];
+      tempAnswersArray.splice(randomIndex, 1);
+      answerWrap.appendChild(answer);
+      answersContainer.appendChild(answerWrap);
+    }
+  }
+
   index++;
   const nextBtn = document.getElementById("next-question");
   nextBtn.onclick = (event) => {
