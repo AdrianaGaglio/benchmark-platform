@@ -14,10 +14,13 @@ h4 {
 h5 {
   font-size: 1.6rem;
 }
-h6 {
-  font-size: 1.1rem;
+#correct-answers p,
+#wrong-answers p {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.2rem;
   opacity: 0.8;
   margin-top: 0.2rem;
+  font-weight: 300;
 }
 p {
   margin-top: 1rem;
