@@ -4,9 +4,11 @@ let index = 0;
 const getQuestions = (level) => {
   // genero array di domande in base al livello scelto
   const questionsArray = questions.filter((question) => question.difficulty === level);
+  // chiamo funzione per la visualizzazione di domanda + risposte
   questionsLoop(questionsArray, index);
 };
 
+// funzione per gestire la rotazione delle domande
 const questionsLoop = (array, index) => {
   // mostro il testo della domanda
   const questionText = document.getElementById("question-text");
@@ -31,6 +33,7 @@ const questionsLoop = (array, index) => {
       tempAnswersArray.splice(randomIndex, 1);
       answerWrap.appendChild(answer);
       answersContainer.appendChild(answerWrap);
+      // evidenzio la risposta selezionata
       answer.onclick = () => {
         answer.classList.add("highlighted");
       };
@@ -38,21 +41,38 @@ const questionsLoop = (array, index) => {
   }
 };
 
-const levelChoise = document.querySelector("form");
-levelChoise.onsubmit = (event) => {
-  event.preventDefault();
-  document.getElementById("quiz-wrapper").style.display = "block";
-  levelChoise.style.display = "none";
-};
-
 window.onload = () => {
-  getQuestions("easy");
-  answers.addEventListener("click", () => {
-    index++;
-    document.getElementById("answers").innerHTML = "";
-    questionsLoop(
-      questions.filter((question) => question.difficulty === "easy"),
-      index
-    );
-  });
+  // mostro le domande successivamente alla scelta del livello di difficoltà
+  const levelChoise = document.querySelector("form");
+  levelChoise.onsubmit = (event) => {
+    event.preventDefault();
+    // prelevo il livello di difficoltà scelto
+    const chosenLevel = document.getElementById("level").value;
+    if (chosenLevel === " ") {
+      // controllo che l'utente abbia scelto un livello di difficoltà
+      alert("You must chose a difficulty level!!!");
+    } else {
+      // mostro l'area dove verranno visualizzate le domande
+      document.getElementById("quiz-wrapper").style.display = "block";
+      // nascondo il form di scelta iniziale
+      levelChoise.style.display = "none";
+      // genero le domande in base al livello scelto
+      getQuestions(chosenLevel);
+      // gestisco il passaggio alla domanda successiva
+      answers.addEventListener(
+        "click",
+        setTimeout(() => {
+          index++;
+          document.getElementById("answers").innerHTML = "";
+          const questionsArray = questions.filter((question) => question.difficulty === chosenLevel);
+          if (index === questionsArray.length) {
+            alert("Domande finite");
+          } else {
+            questionsLoop(questionsArray, index);
+          }
+        }),
+        1000
+      );
+    }
+  };
 };
