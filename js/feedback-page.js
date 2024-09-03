@@ -40,3 +40,13 @@ window.onload = () => {
 
 
 
+console.dir(document.querySelector(".star"))
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const btn = document.querySelector(".default-btn");
+
+    btn.addEventListener("click", function () {
+        btn.classList.toggle("active-btn");
+    });
+});
