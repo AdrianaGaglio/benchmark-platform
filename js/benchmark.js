@@ -73,6 +73,8 @@ window.onload = () => {
           alert("Domande finite");
         } else {
           questionsLoop(questionsArray, index);
+          // contatore domanda infondo alla pagina
+          document.querySelector("#current-question").innerText = index + 1;
         }
       });
     }
