@@ -1,14 +1,3 @@
-/* body {
-  margin: 0;
-  padding: 0;
-  font-family: "Inter", sans-serif;
-}
-
-header {
-  padding: 1rem;
-  text-align: center;
-} */
-
 main {
   text-align: center;
 }
@@ -23,6 +12,12 @@ h2 {
 .fp {
   margin-bottom: 3rem;
   line-height: 2.5rem;
+}
+.titlef-b {
+  line-height: 4rem;
+  width: 1000px;
+  min-width: 500px;
+  margin-bottom: 2.5rem;
 }
 
 #comment-input {
@@ -57,4 +52,17 @@ h2 {
   color: #0b113b;
   border: none;
   box-shadow: 1px 1px 25px #00ffff;
+}
+/*  */
+
+.star {
+  font-size: 2rem;
+  color: transparent;
+  display: inline-block;
+  opacity: 0.1;
+  cursor: pointer;
+}
+
+.star.selected {
+  opacity: 1;
 }
