@@ -55,6 +55,7 @@ footer {
   position: absolute;
   width: 100%;
   bottom: 3rem;
+  display: none;
 }
 
 .question-counter {

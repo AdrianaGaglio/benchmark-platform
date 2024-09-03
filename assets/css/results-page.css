@@ -27,7 +27,7 @@ p {
   font-weight: 600;
 }
 
-p span {
+.blueSpan {
   color: #00ffff;
   font-size: 0.9rem;
 }
@@ -79,4 +79,8 @@ p span {
   color: #c1158b;
   font-size: 1.6rem;
   line-height: 1.8rem;
+}
+
+#results-container {
+  display: none;
 }

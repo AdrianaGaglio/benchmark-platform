@@ -1,8 +1,8 @@
 // indice di selezione della domanda
 let index = 0;
 
-const correctAnswers = 0;
-const wrongAnswers = 0;
+let correctAnswers = 0;
+let wrongAnswers = 0;
 
 const getQuestions = (level) => {
   // genero array di domande in base al livello scelto
@@ -42,16 +42,16 @@ const questionsLoop = (array, index) => {
       tempAnswersArray.splice(randomIndex, 1);
       answerWrap.appendChild(answer);
       answersContainer.appendChild(answerWrap);
-      const risposta = array[index].correct_answers;
-      console.log(risposta);
+
       // evidenzio la risposta selezionata
       answer.onclick = () => {
         answer.classList.add("highlighted");
-        if (answer.innerText === array[index].correct_answers) {
-          console.log("giusto!");
+        if (answer.innerText === array[index].correct_answer) {
+          correctAnswers += 10;
         } else {
-          console.log(risposta);
+          wrongAnswers += 10;
         }
+        chartColor();
       };
     }
   }
@@ -62,10 +62,12 @@ const chartColor = () => {
   const circle = document.getElementById("outside-circle");
   const correctText = document.querySelector("#correct-answers h2");
   const wrongText = document.querySelector("#wrong-answers h2");
-  // const correctAnswers = 90.9 + "%";
-  // const wrongAnswers = 9.1 + "%";
-  correctText.innerHTML = correctAnswers;
-  wrongText.innerHTML = wrongAnswers;
+  const correctTextP = document.querySelector("#correct-answers p");
+  const wrongTextP = document.querySelector("#wrong-answers p");
+  correctTextP.innerText = correctAnswers / 10 + "/10 questions";
+  wrongTextP.innerText = wrongAnswers / 10 + "/10 questions";
+  correctText.innerHTML = correctAnswers + "%";
+  wrongText.innerHTML = wrongAnswers + "%";
   circle.style.background = `conic-gradient(#c1158b 0% ${wrongAnswers}%, #00ffff ${wrongAnswers}% ${correctAnswers}%)`;
   failedExams(wrongAnswers);
 };
@@ -95,6 +97,7 @@ window.onload = () => {
     } else {
       // mostro l'area dove verranno visualizzate le domande
       document.getElementById("quiz-wrapper").style.display = "block";
+      document.querySelector("footer").style.display = "block";
       // nascondo il form di scelta iniziale
       levelChoise.style.display = "none";
       // genero le domande in base al livello scelto
@@ -106,6 +109,8 @@ window.onload = () => {
         const questionsArray = questions.filter((question) => question.difficulty === chosenLevel);
         if (index === questionsArray.length) {
           alert("Domande finite");
+          document.getElementById("quiz-wrapper").style.display = "none";
+          document.getElementById("results-container").style.display = "block";
         } else {
           questionsLoop(questionsArray, index);
           // contatore domanda infondo alla pagina
@@ -114,5 +119,4 @@ window.onload = () => {
       });
     }
   };
-  chartColor();
 };
