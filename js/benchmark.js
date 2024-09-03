@@ -12,7 +12,13 @@ const getQuestions = (level) => {
 const questionsLoop = (array, index) => {
   // mostro il testo della domanda
   const questionText = document.getElementById("question-text");
-  questionText.innerText = array[index].question;
+  const stringToManipulate = array[index].question;
+  const lastThreeWords = `<span>${stringToManipulate.split(" ").slice(-3).join(" ")}</span>`;
+  const stringArray = stringToManipulate.split(" ");
+  for (i = 0; i < 3; i++) {
+    stringArray.pop();
+  }
+  questionText.innerHTML = stringArray.join(" ") + " " + lastThreeWords;
   const answersContainer = document.getElementById("answers");
   // prendo tutte le possibili risposte correlate alla domanda
   const tempAnswersArray = [];
@@ -59,20 +65,16 @@ window.onload = () => {
       // genero le domande in base al livello scelto
       getQuestions(chosenLevel);
       // gestisco il passaggio alla domanda successiva
-      answers.addEventListener(
-        "click",
-        setTimeout(() => {
-          index++;
-          document.getElementById("answers").innerHTML = "";
-          const questionsArray = questions.filter((question) => question.difficulty === chosenLevel);
-          if (index === questionsArray.length) {
-            alert("Domande finite");
-          } else {
-            questionsLoop(questionsArray, index);
-          }
-        }),
-        1000
-      );
+      answers.addEventListener("click", () => {
+        index++;
+        document.getElementById("answers").innerHTML = "";
+        const questionsArray = questions.filter((question) => question.difficulty === chosenLevel);
+        if (index === questionsArray.length) {
+          alert("Domande finite");
+        } else {
+          questionsLoop(questionsArray, index);
+        }
+      });
     }
   };
 };
