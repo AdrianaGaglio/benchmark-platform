@@ -13,22 +13,33 @@
       <img class="logo" src="./assets/images/epicode_logo.png" alt="epicode logo" />
     </header>
     <main>
-      <h4 id="question-text">How can I create a <span>checkbox in HTML?</span></h4>
-      <div id="answers">
-        <!-- <div class="answer-wrapper">
-          <div class="answer highlighted">&lt;input type = "check"&gt;</div>
+      <form>
+        <label for="level">Choose quiz difficulty:</label>
+        <select name="difficulty" id="level">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <button id="level-btn" type="submit">Submit</button>
+      </form>
+      <div id="quiz-wrapper">
+        <h4 id="question-text">How can I create a <span>checkbox in HTML?</span></h4>
+        <div id="answers">
+          <!-- <div class="answer-wrapper">
+            <div class="answer highlighted">&lt;input type = "check"&gt;</div>
+          </div>
+          <div class="answer-wrapper">
+            <div class="answer">&lt;input type = "checkbox"&gt;</div>
+          </div>
+          <div class="answer-wrapper">
+            <div class="answer">&lt;checkbox&gt;</div>
+          </div>
+          <div class="answer-wrapper">
+            <div class="answer">&lt;input type = "button"&gt;</div>
+          </div> -->
         </div>
-        <div class="answer-wrapper">
-          <div class="answer">&lt;input type = "checkbox"&gt;</div>
-        </div>
-        <div class="answer-wrapper">
-          <div class="answer">&lt;checkbox&gt;</div>
-        </div>
-        <div class="answer-wrapper">
-          <div class="answer">&lt;input type = "button"&gt;</div>
-        </div> -->
       </div>
-      <button id="next-question" class="default-btn" type="submit">Proceed</button>
+      <!-- <button id="next-question" class="default-btn" type="submit">Proceed</button> -->
     </main>
     <footer>
       <div class="question-counter">

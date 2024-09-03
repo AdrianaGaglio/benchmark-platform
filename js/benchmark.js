@@ -1,17 +1,22 @@
+// indice di selezione della domanda
+let index = 0;
+
 const getQuestions = (level) => {
   // genero array di domande in base al livello scelto
   const questionsArray = questions.filter((question) => question.difficulty === level);
-  // ciclo l'array di domande per mostrare le possibili risposte
-  let index = 0;
+  questionsLoop(questionsArray, index);
+};
+
+const questionsLoop = (array, index) => {
   // mostro il testo della domanda
   const questionText = document.getElementById("question-text");
-  questionText.innerText = questionsArray[index].question;
+  questionText.innerText = array[index].question;
   const answersContainer = document.getElementById("answers");
   // prendo tutte le possibili risposte correlate alla domanda
   const tempAnswersArray = [];
-  tempAnswersArray.push(questionsArray[index].correct_answer);
-  for (let i = 0; i < questionsArray[index].incorrect_answers.length; i++) {
-    tempAnswersArray.push(questionsArray[index].incorrect_answers[i]);
+  tempAnswersArray.push(array[index].correct_answer);
+  for (let i = 0; i < array[index].incorrect_answers.length; i++) {
+    tempAnswersArray.push(array[index].incorrect_answers[i]);
   }
   // inserisco randomicamente le domande nella pagina
   for (let j = 0; j < tempAnswersArray.length; j++) {
@@ -26,16 +31,28 @@ const getQuestions = (level) => {
       tempAnswersArray.splice(randomIndex, 1);
       answerWrap.appendChild(answer);
       answersContainer.appendChild(answerWrap);
+      answer.onclick = () => {
+        answer.classList.add("highlighted");
+      };
     }
   }
+};
 
-  index++;
-  const nextBtn = document.getElementById("next-question");
-  nextBtn.onclick = (event) => {
-    event.preventDefault();
-  };
+const levelChoise = document.querySelector("form");
+levelChoise.onsubmit = (event) => {
+  event.preventDefault();
+  document.getElementById("quiz-wrapper").style.display = "block";
+  levelChoise.style.display = "none";
 };
 
 window.onload = () => {
   getQuestions("easy");
+  answers.addEventListener("click", () => {
+    index++;
+    document.getElementById("answers").innerHTML = "";
+    questionsLoop(
+      questions.filter((question) => question.difficulty === "easy"),
+      index
+    );
+  });
 };
