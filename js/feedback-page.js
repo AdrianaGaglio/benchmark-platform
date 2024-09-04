@@ -16,10 +16,13 @@ function setStarsUpTo(index) {
 }
 
 // funzione per attivare il bottone
-const activateBtn = () => {
+const handleBtnActivation = () => {
   const selectedStars = document.querySelectorAll(".selected");
-  if (feedbackText.value !== "" && selectedStars.length > 0) {
+  // aggiunto controllo caratteri minimi
+  if (feedbackText.value.length >= 10 && selectedStars.length > 0) {
     feedbackButton.classList.add("active-btn");
+  } else if (feedbackText.value === "") {
+    feedbackButton.classList.remove("active-btn");
   }
 };
 
@@ -51,7 +54,7 @@ window.onload = () => {
 
   // funzione che attiva il pulsante alla compilazione del campo feedback
   feedbackText.oninput = function () {
-    activateBtn();
+    handleBtnActivation();
   };
 };
 
