@@ -1,0 +1,38 @@
+/* form label {
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  margin-bottom: 1.5rem;
+  line-height: 2.5rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  display: inline-block;
+} */
+
+#level {
+  padding: 0.7rem 2.5rem;
+  text-transform: uppercase;
+  background-color: transparent;
+  text-align: center;
+  color: #900080;
+  border: 2px solid white;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: -2px;
+  margin-left: 13px;
+  text-align: center;
+  max-width: 100%;
+}
+
+option {
+  background-color: transparent;
+  text-align: center;
+  font-family: "Outfit";
+}
+
+select {
+  text-align: center;
+  color: black;
+}
+
+.special-label {
+}

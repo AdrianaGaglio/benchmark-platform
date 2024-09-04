@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/benchmark.css" />
     <link rel="stylesheet" href="./assets/css/results-page.css" />
+    <link rel="stylesheet" href="./assets/css/form.css" />
     <title>Benchmark page</title>
   </head>
   <body>
@@ -15,14 +16,14 @@
     </header>
     <main>
       <form>
-        <label for="level">Choose quiz difficulty:</label>
+        <label class="special-label" for="level">Choose quiz difficulty:</label>
         <select name="difficulty" id="level">
           <option value=" "></option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
         </select>
-        <button id="level-btn" type="submit">Submit</button>
+        <button class="default-btn" type="submit">Submit</button>
       </form>
       <div id="quiz-wrapper">
         <h4 id="question-text">How can I create a <span>checkbox in HTML?</span></h4>
