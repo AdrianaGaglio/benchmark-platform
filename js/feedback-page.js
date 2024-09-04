@@ -1,5 +1,5 @@
-let stars = Array.from(document.querySelectorAll('.star'));
-console.log(stars);
+let stars = document.querySelectorAll('.star');
+
 
 function resetStars() {
     stars.forEach(function (star) {
@@ -33,6 +33,7 @@ window.onload = () => {
         stars[i].onclick = function () {
             selectedIndex = i;
             setStarsUpTo(i);
+            document.querySelector("#comment-input").disabled = false;
         };
     }
 };
@@ -40,13 +41,38 @@ window.onload = () => {
 
 
 
-console.dir(document.querySelector(".star"))
 
 
-document.addEventListener("DOMContentLoaded", function () {
-    const btn = document.querySelector(".default-btn");
+// document.addEventListener("DOMContentLoaded", function () {
+//     const btn = document.querySelector(".default-btn");
 
-    btn.addEventListener("click", function () {
-        btn.classList.toggle("active-btn");
-    });
-});
+//     btn.addEventListener("click", function () {
+//         btn.classList.toggle("active-btn");
+//     });
+// });
+
+const feedbackButton = document.querySelector(".default-btn");
+const feedbackText = document.querySelector("#comment-input");
+
+
+feedbackText.oninput = function (event) {
+    const selectedStars = document.querySelectorAll(".selected");
+
+    if (feedbackText.value !== "" && selectedStars.length > 0) {
+        feedbackButton.classList.add("active-btn")
+    }
+
+
+}
+
+
+
+const feedbackForm = document.querySelector("form")
+
+feedbackForm.onsubmit = function (event) {
+    event.preventDefault()
+    if (feedbackText.value === "")
+        alert("You must leave a feedback before submit")
+}
+
+
