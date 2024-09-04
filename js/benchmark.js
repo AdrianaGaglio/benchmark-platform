@@ -110,6 +110,7 @@ window.onload = () => {
         if (index === questionsArray.length) {
           alert("Domande finite");
           document.getElementById("quiz-wrapper").style.display = "none";
+          document.querySelector("footer").style.display = "none";
           document.getElementById("results-container").style.display = "block";
         } else {
           questionsLoop(questionsArray, index);
