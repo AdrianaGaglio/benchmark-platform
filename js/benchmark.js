@@ -167,5 +167,3 @@ window.onload = () => {
     }
   };
 };
-
-// Avvia il countdown al caricamento della pagina

@@ -17,7 +17,7 @@
     <main>
       <form>
         <label class="special-label" for="level">Choose quiz difficulty :</label>
-        <select name="difficulty" id="level">
+        <select id="level" name="difficulty">
           <option value=" "></option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
@@ -25,6 +25,12 @@
         </select>
         <button class="default-btn" type="submit">Submit</button>
       </form>
+      <div class="alert-container">
+        <div class="inner-alert">
+          <span class="alert-close">&times;</span>
+          <p class="alert-text">You must mark the promise to answer by yourself before to proceed!</p>
+        </div>
+      </div>
       <div id="quiz-wrapper">
         <div id="timer-wrapper">
           <span id="counter"></span>

@@ -1,46 +1,27 @@
-/* form label {
-  font-size: 1rem;
-  letter-spacing: 0.01em;
-  margin-bottom: 1.5rem;
-  line-height: 2.5rem;
-  font-weight: 600;
-  margin-top: 1.5rem;
-  display: inline-block;
-} */
-
 #level {
   padding: 0.7rem 2.5rem;
   text-transform: uppercase;
   background-color: transparent;
-  text-align: center;
   color: white;
   border: 2px solid #d20094;
-
-  font-weight: 600;
   text-decoration: none;
   margin-top: -2px;
   margin-left: 13px;
   margin-right: 33px;
-  text-align: center;
   max-width: 100%;
 }
 
-option {
+#level option {
   background-color: transparent;
-  text-align: center;
-  font-family: "Outfit";
-}
-
-select {
+  font-family: "Inter", sans-serif;
   background-color: #0c113b !important;
   border: 0.1px solid #0c113b;
-  text-align: center;
 }
 
 .special-label {
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 25px;
+  font-size: 1.2rem;
   margin-top: 10px;
   display: block;
   margin-top: 10px;
