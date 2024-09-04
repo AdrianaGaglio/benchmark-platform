@@ -10,7 +10,10 @@ checkbox.onclick = () => {
   }
 };
 
-proceedBtn.onclick = () => {
+const proceedForm = document.querySelector("form");
+
+proceedForm.onsubmit = (event) => {
+  event.preventDefault();
   if (document.querySelector("input").checked) {
     window.location.href = "/benchmark-page.html";
   } else {
