@@ -43,13 +43,7 @@ window.onload = () => {
 
 
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     const btn = document.querySelector(".default-btn");
 
-//     btn.addEventListener("click", function () {
-//         btn.classList.toggle("active-btn");
-//     });
-// });
 
 const feedbackButton = document.querySelector(".default-btn");
 const feedbackText = document.querySelector("#comment-input");
