@@ -89,14 +89,12 @@ form label {
   font-size: 0.8rem;
   font-weight: 600;
   display: inline-block;
-  width: 50%;
 }
 
 .default-btn {
   text-decoration: none;
-  display: inline-block;
+  /* display: inline-block; */
   vertical-align: middle;
-  right: 50rem;
   padding: 0.7rem 2.5rem;
   text-transform: uppercase;
   background-color: transparent;
@@ -111,4 +109,5 @@ form label {
   color: #0b113b;
   border: none;
   box-shadow: 1px 1px 25px #00ffff;
+  font-weight: 900;
 }

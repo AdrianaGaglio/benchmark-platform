@@ -1,0 +1,43 @@
+/* Nascondi l'input checkbox */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox {
+  display: inline-flex;
+  cursor: pointer;
+}
+
+/* Stile della "checkmark" (la parte visibile) */
+.custom-checkbox .checkmark {
+  width: 15px;
+  height: 15px;
+  background-color: transparent;
+  border: 1px solid white;
+  position: relative;
+  margin-right: 10px;
+}
+
+/* Indicatore del segno di spunta */
+.custom-checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 2px;
+  top: -2px;
+  width: 5px;
+  height: 12px;
+  border: solid #d20094;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+/* Mostra il segno di spunta quando selezionato */
+.custom-checkbox input[type="checkbox"]:checked + .checkmark:after {
+  display: block;
+}
+
+form {
+  display: flex;
+  justify-content: space-between;
+}

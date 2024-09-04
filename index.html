@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/welcome-page.css" />
+
     <title>Benchmark Platform</title>
   </head>
   <body>
@@ -21,10 +23,16 @@
         <li>This exam will take approx. <span>0-5 minutes</span>.</li>
       </ul>
       <form>
-        <input id="checkbox" type="checkbox" />
-        <label for="checkbox">I promise to answer myselft without help from anyone</label>
-        <a class="default-btn" href="./benchmark-page.html">Proceed</a>
+        <!-- <input id="checkbox" type="checkbox" />
+        <label for="checkbox">I promise to answer myselft without help from anyone</label> -->
+        <label class="custom-checkbox">
+          <input type="checkbox" />
+          <span class="checkmark"></span>
+          I promise to answer myselft without help from anyone
+        </label>
+        <a class="default-btn">Proceed</a>
       </form>
     </main>
+    <script src="./js/welcome.js"></script>
   </body>
 </html>
