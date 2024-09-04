@@ -19,6 +19,7 @@
   text-decoration: none;
   margin-top: -2px;
   margin-left: 13px;
+  margin-right: 33px;
   text-align: center;
   max-width: 100%;
 }
@@ -35,4 +36,10 @@ select {
 }
 
 .special-label {
+  font-family: "Outfit", sans-serif;
+  font-weight: 500;
+  margin-top: 10px;
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 24px;
 }
