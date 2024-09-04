@@ -11,8 +11,6 @@ const activateProceedBtn = () => {
   }
 };
 
-const modalClose = document.querySelector(".alert-close");
-
 window.onload = () => {
   checkbox.onclick = () => {
     activateProceedBtn();
@@ -29,6 +27,7 @@ window.onload = () => {
     }
   };
 
+  const modalClose = document.querySelector(".alert-close");
   modalClose.onclick = () => {
     document.querySelector(".alert-container").style.display = "none";
     document.querySelector(".checkmark").style.border = "1px solid white";
