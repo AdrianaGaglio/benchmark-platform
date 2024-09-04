@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -8,15 +8,16 @@
 body {
   background-image: url("../images/bg.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
   color: white;
-  font-family: "Roboto", sans-serif;
-  font-size: 1.1rem;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
   font-weight: 300;
 }
 
 header,
 main {
-  width: 90%;
+  width: 60%;
   margin-inline: auto;
 }
 
@@ -54,17 +55,17 @@ h1 {
 }
 
 h3 {
-  color: #c2128d;
+  color: #d20094;
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
 
-p {
+.intro-text {
   width: 580px;
   min-width: 580px;
   margin-bottom: 3rem;
-  line-height: 1.2rem;
+  line-height: 1.3rem;
 }
 
 ul {
@@ -89,20 +90,19 @@ form label {
   font-size: 0.8rem;
   font-weight: 600;
   display: inline-block;
-  width: 50%;
 }
 
 .default-btn {
   text-decoration: none;
-  display: inline-block;
+  /* display: inline-block; */
   vertical-align: middle;
-  right: 50rem;
   padding: 0.7rem 2.5rem;
   text-transform: uppercase;
   background-color: transparent;
   color: white;
   border: 2px solid white;
   font-weight: 600;
+  cursor: pointer;
 }
 
 .active-btn {
@@ -110,4 +110,5 @@ form label {
   color: #0b113b;
   border: none;
   box-shadow: 1px 1px 25px #00ffff;
+  font-weight: 900;
 }
