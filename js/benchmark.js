@@ -1,21 +1,26 @@
 // indice di selezione della domanda
-let index = 0;
-
+let questionNumber = 0;
 let correctAnswers = 0;
 let wrongAnswers = 0;
 
+let questionsArray = [];
+console.log(questionsArray);
 const getQuestions = (level) => {
   // genero array di domande in base al livello scelto
-  const questionsArray = questions.filter((question) => question.difficulty === level);
+  const tempArray = questions.filter((question) => question.difficulty === level);
+  questionsArray = [...tempArray];
+  // confronta i valori dell'array tra di loro e li ordina in base al risultato dell'operazione 0.5 - Math.random()
+  // (se negativo il primo valore della comparazione viene considerato minore del secondo, e viceversa )
+  // questionsArray.sort((a, b) => 0.5 - Math.random());
   // chiamo funzione per la visualizzazione di domanda + risposte
-  questionsLoop(questionsArray, index);
+  questionsLoop(questionsArray, questionNumber);
 };
 
 // funzione per gestire la rotazione delle domande
 const questionsLoop = (array, index) => {
   // mostro il testo della domanda
   const questionText = document.getElementById("question-text");
-  const stringToManipulate = array[index].question;
+  const stringToManipulate = array[questionNumber].question;
   const lastThreeWords = `<span>${stringToManipulate.split(" ").slice(-3).join(" ")}</span>`;
   const stringArray = stringToManipulate.split(" ");
   for (i = 0; i < 3; i++) {
@@ -25,9 +30,9 @@ const questionsLoop = (array, index) => {
   const answersContainer = document.getElementById("answers");
   // prendo tutte le possibili risposte correlate alla domanda
   const tempAnswersArray = [];
-  tempAnswersArray.push(array[index].correct_answer);
-  for (let i = 0; i < array[index].incorrect_answers.length; i++) {
-    tempAnswersArray.push(array[index].incorrect_answers[i]);
+  tempAnswersArray.push(array[questionNumber].correct_answer);
+  for (let i = 0; i < array[questionNumber].incorrect_answers.length; i++) {
+    tempAnswersArray.push(array[questionNumber].incorrect_answers[i]);
   }
   // inserisco randomicamente le domande nella pagina
   for (let j = 0; j < tempAnswersArray.length; j++) {
@@ -46,7 +51,7 @@ const questionsLoop = (array, index) => {
       // evidenzio la risposta selezionata
       answer.onclick = () => {
         answer.classList.add("highlighted");
-        if (answer.innerText === array[index].correct_answer) {
+        if (answer.innerText === array[questionNumber].correct_answer) {
           correctAnswers += 10;
         } else {
           wrongAnswers += 10;
@@ -84,6 +89,44 @@ const failedExams = (wrongAnswers) => {
   }
 };
 
+// Seleziona l'elemento del countdown
+const countdownElement = document.getElementById("counter");
+
+let countdownValue = 10; // Valore iniziale del countdown
+let countdownInterval;
+
+// Funzione per avviare il countdown
+const startCountdown = () => {
+  countdownElement.textContent = countdownValue;
+
+  countdownInterval = setInterval(() => {
+    countdownValue--;
+    countdownElement.textContent = countdownValue;
+
+    // Se il valore raggiunge 0, resetta il countdown
+    if (countdownValue === 0 && questionNumber < questionsArray.length - 1) {
+      questionNumber++;
+      resetCountdown();
+      document.getElementById("answers").innerHTML = "";
+      questionsLoop(questionsArray, questionNumber);
+      // contatore domanda infondo alla pagina
+      document.querySelector("#current-question").innerText = questionNumber + 1;
+    } else if (countdownValue === 0 && questionNumber === questionsArray.length - 1) {
+      // alert("Domande finite");
+      document.getElementById("quiz-wrapper").style.display = "none";
+      document.querySelector("footer").style.display = "none";
+      document.getElementById("results-container").style.display = "block";
+    }
+  }, 1000);
+};
+
+// Funzione per resettare il countdown
+const resetCountdown = () => {
+  clearInterval(countdownInterval); // Ferma l'intervallo attuale
+  countdownValue = 10; // Ripristina il valore iniziale
+  startCountdown(); // Riavvia il countdown
+};
+
 window.onload = () => {
   // mostro le domande successivamente alla scelta del livello di difficoltà
   const levelChoise = document.querySelector("form");
@@ -102,22 +145,27 @@ window.onload = () => {
       levelChoise.style.display = "none";
       // genero le domande in base al livello scelto
       getQuestions(chosenLevel);
+      startCountdown();
       // gestisco il passaggio alla domanda successiva
-      answers.addEventListener("click", () => {
-        index++;
+      answers.addEventListener("click", (event) => {
+        questionNumber++;
+        resetCountdown();
         document.getElementById("answers").innerHTML = "";
         const questionsArray = questions.filter((question) => question.difficulty === chosenLevel);
-        if (index === questionsArray.length) {
+        if (questionNumber === questionsArray.length) {
           alert("Domande finite");
           document.getElementById("quiz-wrapper").style.display = "none";
           document.querySelector("footer").style.display = "none";
           document.getElementById("results-container").style.display = "block";
         } else {
-          questionsLoop(questionsArray, index);
+          questionsLoop(questionsArray, questionNumber);
           // contatore domanda infondo alla pagina
-          document.querySelector("#current-question").innerText = index + 1;
+          document.querySelector("#current-question").innerText = questionNumber + 1;
         }
       });
+      answers.addEventListener("click", resetCountdown());
     }
   };
 };
+
+// Avvia il countdown al caricamento della pagina
