@@ -9,7 +9,7 @@ h2 {
   line-height: 1.2;
 }
 
-.fp {
+.feedback-paragraph {
   width: 100%;
   font-family: "Outfit", sans-serif;
   font-weight: 500;
@@ -19,7 +19,8 @@ h2 {
   line-height: 2.5rem;
   margin-top: 1.5rem;
 }
-.titlef-b {
+
+.feedback-title {
   font-weight: bold;
   font-size: 3em;
   line-height: 4rem;
@@ -30,7 +31,7 @@ h2 {
 
 #comment-input {
   border: none;
-  border-bottom: 2px solid #ff00ff;
+  border-bottom: 2px solid #d20094;
   padding: 10px 1rem;
   margin: 0 auto;
   display: block;
@@ -42,24 +43,7 @@ h2 {
 }
 
 .default-btn {
-  display: inline-block;
-  padding: 0.7rem 2.5rem;
-  text-transform: uppercase;
-  background-color: transparent;
-  color: white;
-  border: 2px solid white;
-  font-weight: 600;
-  text-decoration: none;
-  margin: 40px auto;
-  text-align: center;
-  max-width: 100%;
-}
-
-.active-btn {
-  background-color: #00ffff;
-  color: #0b113b;
-  border: none;
-  box-shadow: 1px 1px 25px #00ffff;
+  margin-top: 2.5rem;
 }
 
 .star {
@@ -80,4 +64,9 @@ h2 {
   font-size: 100%;
   font: inherit;
   vertical-align: baseline;
+}
+
+.alert-close {
+  top: -55px;
+  right: -335px;
 }

@@ -13,11 +13,8 @@
       <img class="logo" src="./assets/images/epicode_logo.png" alt="epicode logo" />
     </header>
     <main>
-      <h2 class="titlef-b">Tell us how it's going</h2>
-
-      <p class="fp">From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
-      <!--  -->
-
+      <h2 class="feedback-title">Tell us how it's going</h2>
+      <p class="feedback-paragraph">From 0 to 10, how likely are you to recommend EPICODE to a friend or a colleague?</p>
       <div class="star-container">
         <img src="./assets/images/star.svg" class="star" />
         <img src="./assets/images/star.svg" class="star" />
@@ -31,10 +28,16 @@
         <img src="./assets/images/star.svg" class="star" />
       </div>
       <form>
-        <p class="fp">Leave us an open feedback about your experience so far</p>
+        <p class="feedback-paragraph">Leave us an open feedback about your experience so far</p>
         <input id="comment-input" type="text" placeholder="Write your comment here" disabled />
         <button class="default-btn" type="submit">More info</button>
       </form>
+      <div class="alert-container">
+        <div class="inner-alert">
+          <span class="alert-close">&times;</span>
+          <p class="alert-text">You must leave a feedback before submit!</p>
+        </div>
+      </div>
     </main>
     <script src="./js/feedback-page.js"></script>
   </body>
