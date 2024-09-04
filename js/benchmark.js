@@ -92,7 +92,7 @@ const failedExams = (wrongAnswers) => {
 // Seleziona l'elemento del countdown
 const countdownElement = document.getElementById("counter");
 
-let countdownValue = 10; // Valore iniziale del countdown
+let countdownValue = 59; // Valore iniziale del countdown
 let countdownInterval;
 
 // Funzione per avviare il countdown
@@ -123,7 +123,7 @@ const startCountdown = () => {
 // Funzione per resettare il countdown
 const resetCountdown = () => {
   clearInterval(countdownInterval); // Ferma l'intervallo attuale
-  countdownValue = 10; // Ripristina il valore iniziale
+  countdownValue = 59; // Ripristina il valore iniziale
   startCountdown(); // Riavvia il countdown
 };
 

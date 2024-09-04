@@ -17,13 +17,13 @@ body {
 
 header,
 main {
-  width: 60%;
+  width: 50%;
   margin-inline: auto;
 }
 
 header {
   padding-top: 3rem;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
 }
 
 .logo {
@@ -41,6 +41,24 @@ h6 {
 
 h1 {
   font-size: 5rem;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h4 span {
+  font-weight: 900;
+}
+
+h5 {
+  font-size: 1.6rem;
 }
 
 .titles {
