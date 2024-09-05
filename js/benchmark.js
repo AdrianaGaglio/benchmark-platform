@@ -170,6 +170,14 @@ const resetCountdown = () => {
 };
 
 window.onload = () => {
+  const submitButton = document.querySelector("#submit-btn");
+  document.getElementById("level").onchange = (event) => {
+    if (document.getElementById("level").value !== " ") {
+      submitButton.classList.add("active-btn");
+    } else {
+      submitButton.classList.remove("active-btn");
+    }
+  };
   // mostro le domande successivamente alla scelta del livello di difficoltà
   const levelChoise = document.querySelector("form");
   levelChoise.onsubmit = (event) => {
