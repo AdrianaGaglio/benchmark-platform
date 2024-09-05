@@ -65,12 +65,12 @@ const questionsLoop = (array, index) => {
 const chartColor = () => {
   //funzione per cambiare colori e testi in base al risultato del quiz
   const circle = document.getElementById("outside-circle");
-  const correctText = document.querySelector("#correct-answers h2");
-  const wrongText = document.querySelector("#wrong-answers h2");
+  const correctText = document.querySelector("#correct-answers span");
+  const wrongText = document.querySelector("#wrong-answers span");
   const correctTextP = document.querySelector("#correct-answers p");
   const wrongTextP = document.querySelector("#wrong-answers p");
-  correctTextP.innerText = correctAnswers / 10 + "/10 questions";
-  wrongTextP.innerText = wrongAnswers / 10 + "/10 questions";
+  correctTextP.innerText = correctAnswers + "/10 questions";
+  wrongTextP.innerText = wrongAnswers + "/10 questions";
   correctText.innerHTML = (100 * correctAnswers) / questionsArray.length + "%";
   wrongText.innerHTML = (100 * wrongAnswers) / questionsArray.length + "%";
   circle.style.background = `conic-gradient(#c1158b 0% ${wrongAnswers}%, #00ffff ${wrongAnswers}% ${correctAnswers}%)`;
