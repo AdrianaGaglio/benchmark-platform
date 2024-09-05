@@ -11,6 +11,7 @@ let countdownValue = 10;
 let countdownInterval;
 
 let questionsArray = [];
+
 const getQuestions = (level) => {
   // genero array di domande in base al livello scelto
   const tempArray = questions.filter((question) => question.difficulty === level);
@@ -151,7 +152,7 @@ const startCountdown = () => {
 // Funzione per resettare il countdown
 const resetCountdown = () => {
   clearInterval(countdownInterval); // Ferma l'intervallo attuale
-  countdownValue = 10; // Ripristina il valore iniziale
+  countdownValue = 59; // Ripristina il valore iniziale
   startCountdown(); // Riavvia il countdown
 };
 
