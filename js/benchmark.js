@@ -1,5 +1,6 @@
 // indice di selezione della domanda
 let questionNumber = 0;
+let numQuestion = 0;
 
 // risposte corrette
 let correctAnswers = 0;
@@ -12,13 +13,13 @@ let countdownInterval;
 
 let questionsArray = [];
 
-const getQuestions = (level) => {
+const getQuestions = (level, numQuestion) => {
   // genero array di domande in base al livello scelto
   const tempArray = questions.filter((question) => question.difficulty === level);
-  questionsArray = [...tempArray];
+  tempArray.sort((a, b) => 0.5 - Math.random());
+  questionsArray = [...tempArray.slice(0, numQuestion)];
   // confronta i valori dell'array tra di loro e li ordina in base al risultato dell'operazione 0.5 - Math.random()
   // (se negativo il primo valore della comparazione viene considerato minore del secondo, e viceversa )
-  // questionsArray.sort((a, b) => 0.5 - Math.random());
   // chiamo funzione per la visualizzazione di domanda + risposte
   questionsLoop(questionsArray, questionNumber);
 };
@@ -184,6 +185,8 @@ window.onload = () => {
     event.preventDefault();
     // prelevo il livello di difficoltà scelto
     const chosenLevel = document.getElementById("level").value;
+    // prelevo il numero di domande
+    numQuestion = document.getElementById("question-number").value;
     if (chosenLevel === " ") {
       // controllo che l'utente abbia scelto un livello di difficoltà
       alert("You must chose a difficulty level!!!");
@@ -195,7 +198,7 @@ window.onload = () => {
       // nascondo il form di scelta iniziale
       levelChoise.style.display = "none";
       // genero le domande in base al livello scelto
-      getQuestions(chosenLevel);
+      getQuestions(chosenLevel, numQuestion);
       startCountdown();
       // gestisco il passaggio alla domanda successiva
       answers.addEventListener("click", () => {
