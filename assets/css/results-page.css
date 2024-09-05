@@ -4,7 +4,7 @@ main {
 
 #correct-answers p,
 #wrong-answers p {
-  font-family: "Outfit", sans-serif;
+  font-family: "Inter", sans-serif;
   font-size: 1.2rem;
   opacity: 0.8;
   margin-top: 0.2rem;
