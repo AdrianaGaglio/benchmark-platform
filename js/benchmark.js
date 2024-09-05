@@ -4,7 +4,6 @@ let correctAnswers = 0;
 let wrongAnswers = 0;
 
 let questionsArray = [];
-console.log(questionsArray);
 const getQuestions = (level) => {
   // genero array di domande in base al livello scelto
   const tempArray = questions.filter((question) => question.difficulty === level);
