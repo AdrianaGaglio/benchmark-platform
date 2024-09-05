@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
     <link rel="stylesheet" href="./assets/css/benchmark.css" />
     <link rel="stylesheet" href="./assets/css/results-page.css" />
+    <link rel="stylesheet" href="./assets/css/form.css" />
     <title>Benchmark page</title>
   </head>
   <body>
@@ -22,6 +23,8 @@
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
         </select>
+        <label for="volume">How many questions?</label>
+        <input type="range" id="question-number" name="howManyQuestions" min="5" max="10" />
         <button class="default-btn" type="submit">Submit</button>
       </form>
       <div class="alert-container">
