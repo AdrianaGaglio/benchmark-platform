@@ -98,7 +98,7 @@ const chartColor = () => {
 
 const failedExams = (wrongAnswers) => {
   // funzione per cambiare testo in caso di esito negativo
-  if (wrongAnswers >= 50) {
+  if (wrongAnswers >= questionsArray.length / 2) {
     const textInCircle = document.getElementById("center-text");
     textInCircle.innerHTML = "";
     const examFailed = document.createElement("p");
@@ -114,13 +114,13 @@ const countdownElement = document.getElementById("counter");
 // Funzione per avviare il countdown
 const startCountdown = () => {
   const correctAnswerToCheck = Array.from(document.getElementsByClassName("answer"));
-  countdownElement.innerHTML = `<span>Remaining</span> ${countdownValue} <span>seconds</span>`;
+  countdownElement.innerHTML = `${countdownValue} <span>seconds remaining</span>`;
   const progressBar = document.getElementById("progress-bar");
   progressBar.style.width = "100%";
   countdownInterval = setInterval(() => {
     countdownValue--;
     const secondsText = countdownValue > 1 ? "<span>seconds</span>" : "<span>second</span>";
-    countdownElement.innerHTML = `<span>Remaining</span> ${countdownValue} ${secondsText}`;
+    countdownElement.innerHTML = `${countdownValue} <span>${secondsText} remaining</span> `;
     //decremento la barra del tempo
     const decrement = (countdownValue / 59) * 100;
     progressBar.style.width = decrement + "%";

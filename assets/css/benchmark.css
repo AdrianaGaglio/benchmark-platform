@@ -126,6 +126,7 @@ footer {
 
 #counter {
   font-weight: 700;
+  opacity: 0.5;
 }
 
 #counter span {
