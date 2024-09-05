@@ -106,26 +106,40 @@ let countdownInterval;
 // Funzione per avviare il countdown
 const startCountdown = () => {
   countdownElement.textContent = countdownValue;
-
+  const correctAnswerToCheck = Array.from(document.getElementsByClassName("answer"));
   countdownInterval = setInterval(() => {
     countdownValue--;
     countdownElement.textContent = countdownValue;
-
     // Se il valore raggiunge 0, resetta il countdown
     if (countdownValue === 0 && questionNumber < questionsArray.length - 1) {
-      questionNumber++;
-      resetCountdown();
-      document.getElementById("answers").innerHTML = "";
-      questionsLoop(questionsArray, questionNumber);
-      wrongAnswers += 1;
-      // contatore domanda infondo alla pagina
-      document.querySelector("#current-question").innerText = questionNumber + 1;
+      correctAnswerToCheck.forEach((answer) => {
+        if (answer.innerText === questionsArray[questionNumber].correct_answer) {
+          answer.classList.add("correct-answer");
+        }
+      });
+      setTimeout(function () {
+        questionNumber++;
+        wrongAnswers += 1;
+        resetCountdown();
+        document.getElementById("answers").innerHTML = "";
+        questionsLoop(questionsArray, questionNumber);
+        // contatore domanda infondo alla pagina
+        document.querySelector("#current-question").innerText = questionNumber + 1;
+      }, 500);
     } else if (countdownValue === 0 && questionNumber === questionsArray.length - 1) {
-      alert("Domande finite");
-      wrongAnswers += 1;
-      document.getElementById("quiz-wrapper").style.display = "none";
-      document.querySelector("footer").style.display = "none";
-      document.getElementById("results-container").style.display = "block";
+      correctAnswerToCheck.forEach((answer) => {
+        if (answer.innerText === questionsArray[questionNumber].correct_answer) {
+          answer.classList.add("correct-answer");
+          console.log("aggiunta");
+        }
+      });
+      setTimeout(function () {
+        alert("Domande finite");
+        wrongAnswers += 1;
+        document.getElementById("quiz-wrapper").style.display = "none";
+        document.querySelector("footer").style.display = "none";
+        document.getElementById("results-container").style.display = "block";
+      }, 500);
     }
   }, 1000);
 };
@@ -162,7 +176,6 @@ window.onload = () => {
           questionNumber++;
           resetCountdown();
           document.getElementById("answers").innerHTML = "";
-          const questionsArray = questions.filter((question) => question.difficulty === chosenLevel);
           if (questionNumber === questionsArray.length) {
             alert("Domande finite");
             document.getElementById("quiz-wrapper").style.display = "none";
