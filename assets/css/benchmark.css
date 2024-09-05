@@ -67,6 +67,7 @@ footer {
 
 #total-questions {
   color: rgba(144, 0, 128, 1);
+  font-weight: 700;
 }
 
 #next-question {

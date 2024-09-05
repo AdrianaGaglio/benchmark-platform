@@ -87,12 +87,12 @@ const chartColor = () => {
   const wrongText = document.querySelector("#wrong-answers span");
   const correctTextP = document.querySelector("#correct-answers p");
   const wrongTextP = document.querySelector("#wrong-answers p");
-  correctTextP.innerText = correctAnswers + "/10 questions";
-  wrongTextP.innerText = wrongAnswers + "/10 questions";
-  const correctPercent = (100 * correctAnswers) / questionsArray.length;
-  const wrongPercent = (100 * wrongAnswers) / questionsArray.length;
-  correctText.innerHTML = correctPercent + "%";
-  wrongText.innerHTML = wrongPercent + "%";
+  correctTextP.innerText = `${correctAnswers}/${questionsArray.length} questions`;
+  wrongTextP.innerText = `${wrongAnswers}/${numQuestion} questions`;
+  const correctPercent = parseFloat((100 * correctAnswers) / questionsArray.length);
+  const wrongPercent = parseFloat((100 * wrongAnswers) / questionsArray.length);
+  correctText.innerHTML = correctPercent.toFixed(2) + "%";
+  wrongText.innerHTML = wrongPercent.toFixed(2) + "%";
   circle.style.background = `conic-gradient(#c1158b 0% ${wrongPercent}%, #00ffff ${wrongPercent}% ${correctPercent}%)`;
   failedExams(wrongAnswers);
 };
@@ -195,6 +195,7 @@ window.onload = () => {
       document.getElementById("timer-wrapper").style.display = "block";
       document.getElementById("quiz-wrapper").style.display = "block";
       document.querySelector("footer").style.display = "block";
+      document.querySelector("#total-questions").innerText = "/ " + numQuestion;
       // nascondo il form di scelta iniziale
       levelChoise.style.display = "none";
       // genero le domande in base al livello scelto
