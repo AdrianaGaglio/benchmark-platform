@@ -71,13 +71,15 @@ const questionsLoop = (index) => {
             }
           });
         }
+        chartColor();
       };
     }
   }
-  chartColor();
 };
 
 const chartColor = () => {
+  console.log(correctAnswers);
+  console.log(wrongAnswers);
   //funzione per cambiare colori e testi in base al risultato del quiz
   const circle = document.getElementById("outside-circle");
   const correctText = document.querySelector("#correct-answers span");
@@ -86,9 +88,11 @@ const chartColor = () => {
   const wrongTextP = document.querySelector("#wrong-answers p");
   correctTextP.innerText = correctAnswers + "/10 questions";
   wrongTextP.innerText = wrongAnswers + "/10 questions";
-  correctText.innerHTML = (100 * correctAnswers) / questionsArray.length + "%";
-  wrongText.innerHTML = (100 * wrongAnswers) / questionsArray.length + "%";
-  circle.style.background = `conic-gradient(#c1158b 0% ${wrongAnswers}%, #00ffff ${wrongAnswers}% ${correctAnswers}%)`;
+  const correctPercent = (100 * correctAnswers) / questionsArray.length;
+  const wrongPercent = (100 * wrongAnswers) / questionsArray.length;
+  correctText.innerHTML = correctPercent + "%";
+  wrongText.innerHTML = wrongPercent + "%";
+  circle.style.background = `conic-gradient(#c1158b 0% ${wrongPercent}%, #00ffff ${wrongPercent}% ${correctPercent}%)`;
   failedExams(wrongAnswers);
 };
 
@@ -132,6 +136,7 @@ const startCountdown = () => {
       setTimeout(function () {
         questionNumber++;
         wrongAnswers += 1;
+        chartColor();
         resetCountdown();
         document.getElementById("answers").innerHTML = "";
         questionsLoop(questionsArray, questionNumber);
@@ -147,6 +152,7 @@ const startCountdown = () => {
       setTimeout(function () {
         alert("Domande finite");
         wrongAnswers += 1;
+        chartColor();
         document.getElementById("timer-wrapper").style.display = "none";
         document.getElementById("quiz-wrapper").style.display = "none";
         document.querySelector("footer").style.display = "none";
