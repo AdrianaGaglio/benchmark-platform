@@ -96,12 +96,3 @@ feedbackForm.onsubmit = function (event) {
     feedbackText.style.border = "border-bottom: 2px solid #d20094";
   };
 };
-
-let commentInput = document.querySelector("#comment-input");
-
-// function validateComment() {
-//     let commentValue = commentInput.value;
-//     if (commentValue === "") {
-//         alert("Inserisci un testo di almeno 10 caratteri");
-//     }
-// };
