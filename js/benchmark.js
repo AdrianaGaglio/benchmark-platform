@@ -148,21 +148,23 @@ window.onload = () => {
       getQuestions(chosenLevel);
       startCountdown();
       // gestisco il passaggio alla domanda successiva
-      answers.addEventListener("click", (event) => {
-        questionNumber++;
-        resetCountdown();
-        document.getElementById("answers").innerHTML = "";
-        const questionsArray = questions.filter((question) => question.difficulty === chosenLevel);
-        if (questionNumber === questionsArray.length) {
-          alert("Domande finite");
-          document.getElementById("quiz-wrapper").style.display = "none";
-          document.querySelector("footer").style.display = "none";
-          document.getElementById("results-container").style.display = "block";
-        } else {
-          questionsLoop(questionsArray, questionNumber);
-          // contatore domanda infondo alla pagina
-          document.querySelector("#current-question").innerText = questionNumber + 1;
-        }
+      answers.addEventListener("click", () => {
+        setTimeout(function () {
+          questionNumber++;
+          resetCountdown();
+          document.getElementById("answers").innerHTML = "";
+          const questionsArray = questions.filter((question) => question.difficulty === chosenLevel);
+          if (questionNumber === questionsArray.length) {
+            alert("Domande finite");
+            document.getElementById("quiz-wrapper").style.display = "none";
+            document.querySelector("footer").style.display = "none";
+            document.getElementById("results-container").style.display = "block";
+          } else {
+            questionsLoop(questionsArray, questionNumber);
+            // contatore domanda infondo alla pagina
+            document.querySelector("#current-question").innerText = questionNumber + 1;
+          }
+        }, 500);
       });
       answers.addEventListener("click", resetCountdown());
     }
