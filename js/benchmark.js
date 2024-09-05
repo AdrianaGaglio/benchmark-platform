@@ -109,11 +109,16 @@ const countdownElement = document.getElementById("counter");
 
 // Funzione per avviare il countdown
 const startCountdown = () => {
-  countdownElement.textContent = countdownValue;
   const correctAnswerToCheck = Array.from(document.getElementsByClassName("answer"));
+  countdownElement.textContent = countdownValue;
+  const progressBar = document.getElementById("progress-bar");
+  progressBar.style.width = "100%";
   countdownInterval = setInterval(() => {
     countdownValue--;
     countdownElement.textContent = countdownValue;
+    //decremento la barra del tempo
+    const decrement = (countdownValue / 59) * 100;
+    progressBar.style.width = decrement + "%";
     if (countdownValue === 0) {
       document.querySelectorAll(".answer").forEach((answer) => {
         if (answer.innerText === questionsArray[questionNumber].correct_answer) {
