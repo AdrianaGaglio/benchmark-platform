@@ -110,12 +110,13 @@ const countdownElement = document.getElementById("counter");
 // Funzione per avviare il countdown
 const startCountdown = () => {
   const correctAnswerToCheck = Array.from(document.getElementsByClassName("answer"));
-  countdownElement.textContent = countdownValue;
+  countdownElement.innerHTML = `<span>Remaining</span> ${countdownValue} <span>seconds</span>`;
   const progressBar = document.getElementById("progress-bar");
   progressBar.style.width = "100%";
   countdownInterval = setInterval(() => {
     countdownValue--;
-    countdownElement.textContent = countdownValue;
+    const secondsText = countdownValue > 1 ? "<span>seconds</span>" : "<span>second</span>";
+    countdownElement.innerHTML = `<span>Remaining</span> ${countdownValue} ${secondsText}`;
     //decremento la barra del tempo
     const decrement = (countdownValue / 59) * 100;
     progressBar.style.width = decrement + "%";
@@ -146,6 +147,7 @@ const startCountdown = () => {
       setTimeout(function () {
         alert("Domande finite");
         wrongAnswers += 1;
+        document.getElementById("timer-wrapper").style.display = "none";
         document.getElementById("quiz-wrapper").style.display = "none";
         document.querySelector("footer").style.display = "none";
         document.getElementById("results-container").style.display = "block";
@@ -157,7 +159,7 @@ const startCountdown = () => {
 // Funzione per resettare il countdown
 const resetCountdown = () => {
   clearInterval(countdownInterval); // Ferma l'intervallo attuale
-  countdownValue = 59; // Ripristina il valore iniziale
+  countdownValue = 10; // Ripristina il valore iniziale
   startCountdown(); // Riavvia il countdown
 };
 
@@ -173,6 +175,7 @@ window.onload = () => {
       alert("You must chose a difficulty level!!!");
     } else {
       // mostro l'area dove verranno visualizzate le domande
+      document.getElementById("timer-wrapper").style.display = "block";
       document.getElementById("quiz-wrapper").style.display = "block";
       document.querySelector("footer").style.display = "block";
       // nascondo il form di scelta iniziale
@@ -188,6 +191,7 @@ window.onload = () => {
           document.getElementById("answers").innerHTML = "";
           if (questionNumber === questionsArray.length) {
             alert("Domande finite");
+            document.getElementById("timer-wrapper").style.display = "none";
             document.getElementById("quiz-wrapper").style.display = "none";
             document.querySelector("footer").style.display = "none";
             document.getElementById("results-container").style.display = "block";

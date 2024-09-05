@@ -107,6 +107,13 @@ footer {
   margin-bottom: 1.5rem;
 }
 
+#timer-wrapper {
+  display: none;
+  width: 200px;
+  margin-bottom: 1.5rem;
+  margin-inline: auto;
+}
+
 #timer-container {
   margin-top: 2rem;
   width: 100%;
@@ -114,6 +121,16 @@ footer {
   background-color: rgb(255 255 255 / 0.1);
   border-radius: 20px;
   overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+#counter {
+  font-weight: 700;
+}
+
+#counter span {
+  font-size: 0.85rem;
+  font-weight: 300;
 }
 
 #progress-bar {
