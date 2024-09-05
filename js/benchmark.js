@@ -170,15 +170,22 @@ const resetCountdown = () => {
   startCountdown(); // Riavvia il countdown
 };
 
+// const keepQuestion = (slider) => {
+//   const sliderThumb = document.getElementById("tooltip");
+//   sliderThumb.innerText = slider.value;
+//   const sliderWidth = slider.offsetWidth; //larghezza dello slider
+//   const thumbDimension = 20; // dimensione pallino
+//   const toolMax = slider.max; //valore massimo slider
+//   const toolMin = slider.min; //valore minimo slider (5 in questo caso)
+//   const thumbPercentage = (slider.value - toolMin) / (toolMax - toolMin);
+//   const thumbPosition = thumbPercentage * (sliderWidth - thumbDimension) + thumbDimension / 2;
+//   sliderThumb.style.left = thumbPosition + "px";
+// };
+
 window.onload = () => {
-  const submitButton = document.querySelector("#submit-btn");
-  document.getElementById("level").onchange = (event) => {
-    if (document.getElementById("level").value !== " ") {
-      submitButton.classList.add("active-btn");
-    } else {
-      submitButton.classList.remove("active-btn");
-    }
-  };
+  // //funzione slider
+  // const slider = document.getElementById("question-number");
+  // keepQuestion(slider);
   // mostro le domande successivamente alla scelta del livello di difficoltà
   const levelChoise = document.querySelector("form");
   levelChoise.onsubmit = (event) => {
