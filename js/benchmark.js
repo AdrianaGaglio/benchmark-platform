@@ -1,7 +1,14 @@
 // indice di selezione della domanda
 let questionNumber = 0;
+
+// risposte corrette
 let correctAnswers = 0;
+// risposte sbagliate
 let wrongAnswers = 0;
+
+// countdown valore iniziale
+let countdownValue = 10;
+let countdownInterval;
 
 let questionsArray = [];
 const getQuestions = (level) => {
@@ -16,10 +23,10 @@ const getQuestions = (level) => {
 };
 
 // funzione per gestire la rotazione delle domande
-const questionsLoop = (array, index) => {
+const questionsLoop = (index) => {
   // mostro il testo della domanda
   const questionText = document.getElementById("question-text");
-  const stringToManipulate = array[questionNumber].question;
+  const stringToManipulate = questionsArray[questionNumber].question;
   const lastThreeWords = `<span>${stringToManipulate.split(" ").slice(-3).join(" ")}</span>`;
   const stringArray = stringToManipulate.split(" ");
   for (i = 0; i < 3; i++) {
@@ -29,9 +36,9 @@ const questionsLoop = (array, index) => {
   const answersContainer = document.getElementById("answers");
   // prendo tutte le possibili risposte correlate alla domanda
   const tempAnswersArray = [];
-  tempAnswersArray.push(array[questionNumber].correct_answer);
-  for (let i = 0; i < array[questionNumber].incorrect_answers.length; i++) {
-    tempAnswersArray.push(array[questionNumber].incorrect_answers[i]);
+  tempAnswersArray.push(questionsArray[questionNumber].correct_answer);
+  for (let i = 0; i < questionsArray[questionNumber].incorrect_answers.length; i++) {
+    tempAnswersArray.push(questionsArray[questionNumber].incorrect_answers[i]);
   }
   // inserisco randomicamente le domande nella pagina
   for (let j = 0; j < tempAnswersArray.length; j++) {
@@ -46,10 +53,9 @@ const questionsLoop = (array, index) => {
       tempAnswersArray.splice(randomIndex, 1);
       answerWrap.appendChild(answer);
       answersContainer.appendChild(answerWrap);
-
       // evidenzio la risposta selezionata
-      answer.onclick = () => {
-        if (answer.innerText === array[questionNumber].correct_answer) {
+      answer.onclick = (event) => {
+        if (answer.innerText === questionsArray[questionNumber].correct_answer) {
           correctAnswers += 1;
           // di verde se è la risposta corretta
           answer.classList.add("correct-answer");
@@ -59,7 +65,7 @@ const questionsLoop = (array, index) => {
           answer.classList.add("wrong-answer");
           // mostro all'utente quale sarebbe stata la risposta corretta
           document.querySelectorAll(".answer").forEach((answer) => {
-            if (answer.innerText === array[questionNumber].correct_answer) {
+            if (answer.innerText === questionsArray[questionNumber].correct_answer) {
               answer.classList.add("correct-answer");
             }
           });
@@ -100,9 +106,6 @@ const failedExams = (wrongAnswers) => {
 // Seleziona l'elemento del countdown
 const countdownElement = document.getElementById("counter");
 
-let countdownValue = 10; // Valore iniziale del countdown
-let countdownInterval;
-
 // Funzione per avviare il countdown
 const startCountdown = () => {
   countdownElement.textContent = countdownValue;
@@ -110,13 +113,16 @@ const startCountdown = () => {
   countdownInterval = setInterval(() => {
     countdownValue--;
     countdownElement.textContent = countdownValue;
-    // Se il valore raggiunge 0, resetta il countdown
-    if (countdownValue === 0 && questionNumber < questionsArray.length - 1) {
-      correctAnswerToCheck.forEach((answer) => {
+    if (countdownValue === 0) {
+      console.log(document.querySelectorAll(".answer"));
+      document.querySelectorAll(".answer").forEach((answer) => {
         if (answer.innerText === questionsArray[questionNumber].correct_answer) {
           answer.classList.add("correct-answer");
         }
       });
+    }
+    // Se il valore raggiunge 0, resetta il countdown
+    if (countdownValue === 0 && questionNumber < questionsArray.length - 1) {
       setTimeout(function () {
         questionNumber++;
         wrongAnswers += 1;
@@ -130,7 +136,6 @@ const startCountdown = () => {
       correctAnswerToCheck.forEach((answer) => {
         if (answer.innerText === questionsArray[questionNumber].correct_answer) {
           answer.classList.add("correct-answer");
-          console.log("aggiunta");
         }
       });
       setTimeout(function () {
