@@ -24,14 +24,16 @@
       <form>
         <label class="special-label" for="level">Choose quiz difficulty :</label>
         <select id="level" name="difficulty">
-          <option value=" "></option>
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
         </select>
         <label class="special-label" for="question-number">How many questions?</label>
+        <!-- <div class="slider-container"> -->
         <input id="question-number" type="range" name="howManyQuestions" min="5" max="10" value="5" step="1" />
-        <button id="submit-btn" class="default-btn" type="submit">Submit</button>
+        <!-- <div class="tooltip" id="tooltip">5</div>
+        </div> -->
+        <button id="submit-btn" class="default-btn active-btn" type="submit">Let's go!</button>
       </form>
       <div class="alert-container">
         <div class="inner-alert">
