@@ -48,7 +48,6 @@ window.onload = () => {
         stars[i].onclick = function () {
             selectedIndex = i;
             setStarsUpTo(i);
-            document.querySelector("#comment-input").disabled = false;
         };
     }
 
@@ -66,11 +65,24 @@ const feedbackForm = document.querySelector("form");
 feedbackForm.onsubmit = function (event) {
     event.preventDefault();
     // controllo se il campo è vuoto
-    if (feedbackText.value === "") {
+    const selectedStars = document.querySelectorAll(".selected");
+    if (feedbackText.value === "" && selectedStars.length > 0) {
         // mostro alert all'utente
         document.querySelector(".alert-container").style.display = "flex";
         feedbackText.style.border = "2px solid #d20094";
-    } else {
+    }
+    else if (feedbackText.value.length < 10 && selectedStars.length > 0) {
+        document.querySelector(".alert-text").innerText = "You must insert at least ten characters";
+        document.querySelector(".alert-container").style.display = "flex"
+
+    }
+    else if (feedbackText.value.length >= 10 && selectedStars.length === undefined) {
+        document.querySelector(".alert-text").innerText = "You must select at least one star";
+        document.querySelector(".alert-container").style.display = "flex"
+        console.log(selectedStars)
+    }
+
+    else {
         // altrimenti confermo sottomissione e rimando all'homepage con un delay di 3 secondi (temporaneo)
         document.querySelector(".alert-text").innerText = "Your feedback has been correctly submitted!";
         document.querySelector(".alert-container").style.display = "flex";
@@ -87,3 +99,22 @@ feedbackForm.onsubmit = function (event) {
         feedbackText.style.border = "border-bottom: 2px solid #d20094";
     };
 };
+
+
+
+
+let commentInput = document.querySelector('#comment-input');
+
+
+
+
+
+// function validateComment() {
+//     let commentValue = commentInput.value;
+//     if (commentValue === "") {
+//         alert("Inserisci un testo di almeno 10 caratteri");
+//     }
+// };
+
+
+
