@@ -70,10 +70,10 @@ const questionsLoop = (index) => {
             }
           });
         }
-        chartColor();
       };
     }
   }
+  chartColor();
 };
 
 const chartColor = () => {
@@ -114,7 +114,6 @@ const startCountdown = () => {
     countdownValue--;
     countdownElement.textContent = countdownValue;
     if (countdownValue === 0) {
-      console.log(document.querySelectorAll(".answer"));
       document.querySelectorAll(".answer").forEach((answer) => {
         if (answer.innerText === questionsArray[questionNumber].correct_answer) {
           answer.classList.add("correct-answer");
