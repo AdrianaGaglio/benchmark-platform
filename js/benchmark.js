@@ -52,9 +52,9 @@ const questionsLoop = (array, index) => {
       answer.onclick = () => {
         answer.classList.add("highlighted");
         if (answer.innerText === array[questionNumber].correct_answer) {
-          correctAnswers += 10;
+          correctAnswers += 1;
         } else {
-          wrongAnswers += 10;
+          wrongAnswers += 1;
         }
         chartColor();
       };
@@ -71,8 +71,8 @@ const chartColor = () => {
   const wrongTextP = document.querySelector("#wrong-answers p");
   correctTextP.innerText = correctAnswers / 10 + "/10 questions";
   wrongTextP.innerText = wrongAnswers / 10 + "/10 questions";
-  correctText.innerHTML = correctAnswers + "%";
-  wrongText.innerHTML = wrongAnswers + "%";
+  correctText.innerHTML = (100 * correctAnswers) / questionsArray.length + "%";
+  wrongText.innerHTML = (100 * wrongAnswers) / questionsArray.length + "%";
   circle.style.background = `conic-gradient(#c1158b 0% ${wrongAnswers}%, #00ffff ${wrongAnswers}% ${correctAnswers}%)`;
   failedExams(wrongAnswers);
 };
@@ -92,7 +92,7 @@ const failedExams = (wrongAnswers) => {
 // Seleziona l'elemento del countdown
 const countdownElement = document.getElementById("counter");
 
-let countdownValue = 59; // Valore iniziale del countdown
+let countdownValue = 10; // Valore iniziale del countdown
 let countdownInterval;
 
 // Funzione per avviare il countdown
@@ -109,10 +109,12 @@ const startCountdown = () => {
       resetCountdown();
       document.getElementById("answers").innerHTML = "";
       questionsLoop(questionsArray, questionNumber);
+      wrongAnswers += 1;
       // contatore domanda infondo alla pagina
       document.querySelector("#current-question").innerText = questionNumber + 1;
     } else if (countdownValue === 0 && questionNumber === questionsArray.length - 1) {
-      // alert("Domande finite");
+      alert("Domande finite");
+      wrongAnswers += 1;
       document.getElementById("quiz-wrapper").style.display = "none";
       document.querySelector("footer").style.display = "none";
       document.getElementById("results-container").style.display = "block";
@@ -123,7 +125,7 @@ const startCountdown = () => {
 // Funzione per resettare il countdown
 const resetCountdown = () => {
   clearInterval(countdownInterval); // Ferma l'intervallo attuale
-  countdownValue = 59; // Ripristina il valore iniziale
+  countdownValue = 10; // Ripristina il valore iniziale
   startCountdown(); // Riavvia il countdown
 };
 
