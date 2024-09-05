@@ -49,11 +49,20 @@ const questionsLoop = (array, index) => {
 
       // evidenzio la risposta selezionata
       answer.onclick = () => {
-        answer.classList.add("highlighted");
         if (answer.innerText === array[questionNumber].correct_answer) {
           correctAnswers += 1;
+          // di verde se è la risposta corretta
+          answer.classList.add("correct-answer");
         } else {
           wrongAnswers += 1;
+          // di rosso se è la risposta sbagliata
+          answer.classList.add("wrong-answer");
+          // mostro all'utente quale sarebbe stata la risposta corretta
+          document.querySelectorAll(".answer").forEach((answer) => {
+            if (answer.innerText === array[questionNumber].correct_answer) {
+              answer.classList.add("correct-answer");
+            }
+          });
         }
         chartColor();
       };
