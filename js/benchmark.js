@@ -4,6 +4,7 @@ let correctAnswers = 0;
 let wrongAnswers = 0;
 
 let questionsArray = [];
+
 const getQuestions = (level) => {
   // genero array di domande in base al livello scelto
   const tempArray = questions.filter((question) => question.difficulty === level);
@@ -91,17 +92,20 @@ const failedExams = (wrongAnswers) => {
 // Seleziona l'elemento del countdown
 const countdownElement = document.getElementById("counter");
 
-let countdownValue = 10; // Valore iniziale del countdown
+let countdownValue = 59; // Valore iniziale del countdown
 let countdownInterval;
 
 // Funzione per avviare il countdown
 const startCountdown = () => {
   countdownElement.textContent = countdownValue;
-
+  const progressBar = document.getElementById("progress-bar");
+  progressBar.style.width = "100%";
   countdownInterval = setInterval(() => {
     countdownValue--;
     countdownElement.textContent = countdownValue;
-
+    //decremento la barra del tempo
+    const decrement = (countdownValue / 59) * 100;
+    progressBar.style.width = decrement + "%";
     // Se il valore raggiunge 0, resetta il countdown
     if (countdownValue === 0 && questionNumber < questionsArray.length - 1) {
       questionNumber++;
@@ -124,7 +128,7 @@ const startCountdown = () => {
 // Funzione per resettare il countdown
 const resetCountdown = () => {
   clearInterval(countdownInterval); // Ferma l'intervallo attuale
-  countdownValue = 10; // Ripristina il valore iniziale
+  countdownValue = 59; // Ripristina il valore iniziale
   startCountdown(); // Riavvia il countdown
 };
 
