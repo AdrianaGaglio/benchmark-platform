@@ -151,13 +151,16 @@ const startCountdown = () => {
         }
       });
       setTimeout(function () {
-        alert("Domande finite");
         wrongAnswers += 1;
         chartColor();
         document.getElementById("timer-wrapper").style.display = "none";
         document.getElementById("quiz-wrapper").style.display = "none";
         document.querySelector("footer").style.display = "none";
-        document.getElementById("results-container").style.display = "block";
+        document.querySelector(".alert-container").style.display = "flex";
+        setTimeout(function () {
+          document.querySelector(".alert-container").style.display = "none";
+          document.getElementById("results-container").style.display = "block";
+        }, 4000);
       }, 500);
     }
   }, 1000);
@@ -215,11 +218,14 @@ window.onload = () => {
           resetCountdown();
           document.getElementById("answers").innerHTML = "";
           if (questionNumber === questionsArray.length) {
-            alert("Domande finite");
             document.getElementById("timer-wrapper").style.display = "none";
             document.getElementById("quiz-wrapper").style.display = "none";
-            document.querySelector("footer").style.display = "none";
-            document.getElementById("results-container").style.display = "block";
+            document.querySelector(".alert-container").style.display = "flex";
+            setTimeout(function () {
+              document.querySelector(".alert-container").style.display = "none";
+              document.querySelector("footer").style.display = "none";
+              document.getElementById("results-container").style.display = "block";
+            }, 4000);
           } else {
             questionsLoop(questionsArray, questionNumber);
             // contatore domanda infondo alla pagina
