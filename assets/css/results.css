@@ -25,6 +25,10 @@
 #correct-answers {
   text-align: start;
 }
+#center-page #correct-answers,
+#center-page #wrong-answers {
+  margin-bottom: 100px;
+}
 
 #wrong-answers {
   text-align: end;
