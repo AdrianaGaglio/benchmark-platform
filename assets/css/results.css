@@ -81,7 +81,7 @@
   font-size: 0.9rem;
 }
 
-.default-btn:hover {
+.result-btn:hover {
   background-color: #00ffff;
   color: #0b113b;
   border: none;
@@ -89,7 +89,7 @@
   font-weight: 900;
 }
 
-.default-btn {
+.result-btn {
   margin-top: -10rem;
   z-index: 1;
 }

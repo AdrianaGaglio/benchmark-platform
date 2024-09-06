@@ -56,7 +56,7 @@ const questionsLoop = (index) => {
       answerWrap.appendChild(answer);
       answersContainer.appendChild(answerWrap);
       // evidenzio la risposta selezionata
-      answer.onclick = (event) => {
+      answerWrap.onclick = (event) => {
         if (answer.innerText === questionsArray[questionNumber].correct_answer) {
           correctAnswers += 1;
           // di verde se è la risposta corretta
