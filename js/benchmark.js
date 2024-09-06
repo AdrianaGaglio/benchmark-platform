@@ -56,7 +56,7 @@ const questionsLoop = (index) => {
       answerWrap.appendChild(answer);
       answersContainer.appendChild(answerWrap);
       // evidenzio la risposta selezionata
-      answer.onclick = (event) => {
+      answerWrap.onclick = (event) => {
         if (answer.innerText === questionsArray[questionNumber].correct_answer) {
           correctAnswers += 1;
           // di verde se è la risposta corretta
@@ -79,10 +79,7 @@ const questionsLoop = (index) => {
 };
 
 const chartColor = () => {
-  console.log(correctAnswers);
-  console.log(wrongAnswers);
   //funzione per cambiare colori e testi in base al risultato del quiz
-  const circle = document.getElementById("outside-circle");
   const correctText = document.querySelector("#correct-answers span");
   const wrongText = document.querySelector("#wrong-answers span");
   const correctTextP = document.querySelector("#correct-answers p");
@@ -93,7 +90,10 @@ const chartColor = () => {
   const wrongPercent = parseFloat((100 * wrongAnswers) / questionsArray.length);
   correctText.innerHTML = correctPercent.toFixed(2) + "%";
   wrongText.innerHTML = wrongPercent.toFixed(2) + "%";
-  circle.style.background = `conic-gradient(#c1158b 0% ${wrongPercent}%, #00ffff ${wrongPercent}% ${correctPercent}%)`;
+  const correct = document.querySelector(".donut-segment").attributes[1];
+  const bothPercentage = document.querySelector(".donut-segment").attributes[8];
+  correct.value = `${correctPercent}`;
+  bothPercentage.value = `${correctPercent} ${wrongPercent}`;
   failedExams(wrongAnswers);
 };
 
@@ -103,8 +103,8 @@ const failedExams = (wrongAnswers) => {
     const textInCircle = document.getElementById("center-text");
     textInCircle.innerHTML = "";
     const examFailed = document.createElement("p");
-    examFailed.className = "failed";
-    examFailed.innerHTML = "Sorry! <p>You failed the quiz.</p>";
+    examFailed.id = "failed";
+    examFailed.innerHTML = "Sorry! <p>You failed the test. You can practice more and try again to perform the test.</p>";
     textInCircle.appendChild(examFailed);
   }
 };

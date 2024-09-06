@@ -21,7 +21,7 @@ const handleBtnActivation = () => {
   // aggiunto controllo caratteri minimi
   if (feedbackText.value.length >= 10 && selectedStars.length > 0) {
     feedbackButton.classList.add("active-btn");
-  } else if (feedbackText.value === "") {
+  } else if (feedbackText.value.length <= 10) {
     feedbackButton.classList.remove("active-btn");
   }
 };
@@ -44,10 +44,12 @@ window.onload = () => {
       }
     };
 
-    // funzione che abilita campo input alla selezione delle stelline
     stars[i].onclick = function () {
       selectedIndex = i;
       setStarsUpTo(i);
+      if (feedbackText.value.length >= 10) {
+        feedbackButton.classList.add("active-btn");
+      }
     };
   }
 
@@ -82,10 +84,12 @@ feedbackForm.onsubmit = function (event) {
   } else {
     // altrimenti confermo sottomissione e rimando all'homepage con un delay di 3 secondi (temporaneo)
     document.querySelector(".alert-text").innerText = "Your feedback has been correctly submitted!";
+    document.querySelector(".alert-close").style.display = "none";
     document.querySelector(".alert-container").style.display = "flex";
     setTimeout(function () {
       window.location.href = "./exit.html";
-    }, 2500);
+    }, 1500);
+    feedbackText.value = "";
   }
 
   // funzione per chiudere l'alert al click sulla X

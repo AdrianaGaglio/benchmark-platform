@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./assets/css/reset.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/benchmark.css" />
+    <link rel="stylesheet" href="./assets/css/results.css" />
+    <style>
+      #results-container {
+        display: block;
+      }
+    </style>
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="div1"><div id="div2">&#160;</div></div>
+    <div id="results-container">
+      <h2>Results</h2>
+      <h5>The summary of your answers:</h5>
+      <div id="center-page">
+        <div id="correct-answers">
+          <h4>Correct</h4>
+          <h4><span>50%</span></h4>
+          <p>4/6 questions</p>
+        </div>
+        <!-- <div id="outside-circle">
+          <div id="inside-circle">
+            <div id="center-text">
+              <p>Congratulations! <span class="blueSpan">You passed the exam.</span></p>
+              <p class="small-text">We'll send you the certificate in few minutes. Check your email (including promotions / spam folder)</p>
+            </div>
+          </div>
+        </div> -->
+        <svg width="300px" height="300px" viewBox="0 0 42 42" class="donut">
+          <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+          <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#d2d3d4" stroke-width="3"></circle>
+
+          <circle
+            class="donut-segment"
+            data-per="99"
+            cx="21"
+            cy="21"
+            r="15.91549430918954"
+            fill="transparent"
+            stroke="#ce4b99"
+            stroke-width="3"
+            stroke-dasharray="99 1"
+            stroke-dashoffset="270"
+          ></circle>
+        </svg>
+        <div id="wrong-answers">
+          <h4>Wrong</h4>
+          <h4><span>50%</span></h4>
+          <p>2/6 questions</p>
+        </div>
+      </div>
+      <a class="default-btn" href="./feedback.html">Rate us</a>
+    </div>
+
+    <script src="test.js"></script>
+  </body>
+</html>
