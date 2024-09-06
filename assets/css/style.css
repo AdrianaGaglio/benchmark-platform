@@ -121,7 +121,7 @@ form label {
   background-color: transparent;
   color: white;
   border: 2px solid white;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   box-shadow: 1px 1px 25px transparent;
 }
@@ -129,9 +129,9 @@ form label {
 .active-btn {
   background-color: #00ffff;
   color: #0b113b;
-  border: none;
+  border: 2px solid #00ffff;
   box-shadow: 1px 1px 25px #00ffff;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 /* Stili per il modal popup */
