@@ -6,6 +6,11 @@ h6 {
   text-align: end;
 }
 
+li {
+  display: inline-block;
+  padding-top: 1rem;
+}
+
 .exit-wrapper {
   text-align: center;
 }
@@ -27,7 +32,7 @@ h6 {
 }
 
 .exit-btn {
-  padding-block: 3.5rem;
+  padding-block: 3rem;
 }
 
 .exit-btn .default-btn {
