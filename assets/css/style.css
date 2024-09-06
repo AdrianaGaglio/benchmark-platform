@@ -123,6 +123,7 @@ form label {
   border: 2px solid white;
   font-weight: 600;
   cursor: pointer;
+  box-shadow: 1px 1px 25px transparent;
 }
 
 .active-btn {
