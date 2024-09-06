@@ -84,8 +84,8 @@ feedbackForm.onsubmit = function (event) {
     document.querySelector(".alert-text").innerText = "Your feedback has been correctly submitted!";
     document.querySelector(".alert-container").style.display = "flex";
     setTimeout(function () {
-      window.location.href = "/";
-    }, 3000);
+      window.location.href = "./exit.html";
+    }, 2500);
   }
 
   // funzione per chiudere l'alert al click sulla X
