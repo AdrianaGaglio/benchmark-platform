@@ -111,6 +111,13 @@ form label {
   display: inline-block;
 }
 
+/* Footer */
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 3rem;
+}
+
 /* Stili per i bottoni */
 .default-btn {
   text-decoration: none;

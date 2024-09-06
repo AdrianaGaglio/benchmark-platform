@@ -51,13 +51,6 @@
   background-color: red;
 }
 
-footer {
-  position: absolute;
-  width: 100%;
-  bottom: 3rem;
-  display: none;
-}
-
 .question-counter {
   text-align: center;
   text-transform: uppercase;
@@ -141,4 +134,8 @@ footer {
   border-radius: 20px;
   background-color: #d20094;
   transition: width 1s linear;
+}
+
+.benchmark-footer {
+  display: none;
 }
