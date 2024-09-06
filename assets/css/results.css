@@ -36,16 +36,30 @@
   font-weight: 300;
 }
 
+/* Chart */
+
+#chart-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+}
+
 /* Inner chart text */
 #center-text {
-  width: 90%;
+  position: relative;
+  top: -200px;
+  width: 60%;
+}
+
+#center-text {
+  font-size: 1.2rem;
+  line-height: 1.3rem;
 }
 
 #center-text > p:first-child {
-  font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  line-height: 1.3rem;
 }
 
 /* Testo azzurro */
@@ -62,30 +76,20 @@
   line-height: 1.3;
 }
 
-.failed {
+#failed {
   color: #c1158b;
-  font-size: 1.6rem;
-  line-height: 1.8rem;
+  font-size: 0.9rem;
 }
 
-/* Chart */
-#outside-circle {
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  background: conic-gradient(#c1158b 0% 33.3%, #00ffff 33.3% 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /*le percentuali indicano da quale porzione del cerchio partire fino a quale arrivare per ogni colore*/
+.default-btn:hover {
+  background-color: #00ffff;
+  color: #0b113b;
+  border: none;
+  box-shadow: 1px 1px 25px #00ffff;
+  font-weight: 900;
 }
 
-#inside-circle {
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  background-color: #0e113c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.default-btn {
+  margin-top: -10rem;
+  z-index: 1;
 }

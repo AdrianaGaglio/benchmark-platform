@@ -49,12 +49,27 @@
               <h4><span>50%</span></h4>
               <p>4/6 questions</p>
             </div>
-            <div id="outside-circle">
-              <div id="inside-circle">
-                <div id="center-text">
-                  <p>Congratulations! <span class="blueSpan">You passed the exam.</span></p>
-                  <p class="small-text">We'll send you the certificate in few minutes. Check your email (including promotions / spam folder)</p>
-                </div>
+            <div id="chart-wrapper">
+              <svg width="300px" height="300px" viewBox="0 0 42 42" class="donut">
+                <circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+                <circle class="donut-ring" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#c1158b" stroke-width="3"></circle>
+
+                <circle
+                  class="donut-segment"
+                  data-per="50"
+                  cx="21"
+                  cy="21"
+                  r="15.91549430918954"
+                  fill="transparent"
+                  stroke="#00ffff"
+                  stroke-width="3"
+                  stroke-dasharray="50 50"
+                  stroke-dashoffset="270"
+                ></circle>
+              </svg>
+              <div id="center-text">
+                <p>Congratulations! <span class="blueSpan">You passed the exam.</span></p>
+                <p class="small-text">We'll send you the certificate in few minutes. Check your email (including promotions / spam folder)</p>
               </div>
             </div>
             <div id="wrong-answers">
