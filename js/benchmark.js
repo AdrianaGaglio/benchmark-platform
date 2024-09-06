@@ -143,7 +143,7 @@ const startCountdown = () => {
         questionsLoop(questionsArray, questionNumber);
         // contatore domanda infondo alla pagina
         document.querySelector("#current-question").innerText = questionNumber + 1;
-      }, 500);
+      }, 300);
     } else if (countdownValue === 0 && questionNumber === questionsArray.length - 1) {
       correctAnswerToCheck.forEach((answer) => {
         if (answer.innerText === questionsArray[questionNumber].correct_answer) {
@@ -173,22 +173,7 @@ const resetCountdown = () => {
   startCountdown(); // Riavvia il countdown
 };
 
-// const keepQuestion = (slider) => {
-//   const sliderThumb = document.getElementById("tooltip");
-//   sliderThumb.innerText = slider.value;
-//   const sliderWidth = slider.offsetWidth; //larghezza dello slider
-//   const thumbDimension = 20; // dimensione pallino
-//   const toolMax = slider.max; //valore massimo slider
-//   const toolMin = slider.min; //valore minimo slider (5 in questo caso)
-//   const thumbPercentage = (slider.value - toolMin) / (toolMax - toolMin);
-//   const thumbPosition = thumbPercentage * (sliderWidth - thumbDimension) + thumbDimension / 2;
-//   sliderThumb.style.left = thumbPosition + "px";
-// };
-
 window.onload = () => {
-  // //funzione slider
-  // const slider = document.getElementById("question-number");
-  // keepQuestion(slider);
   // mostro le domande successivamente alla scelta del livello di difficoltà
   const levelChoise = document.querySelector("form");
   levelChoise.onsubmit = (event) => {
@@ -231,9 +216,29 @@ window.onload = () => {
             // contatore domanda infondo alla pagina
             document.querySelector("#current-question").innerText = questionNumber + 1;
           }
-        }, 500);
+        }, 300);
       });
       answers.addEventListener("click", resetCountdown());
     }
   };
+  const slider = document.getElementById("question-number");
+  const tooltip = document.getElementById("tooltip");
+
+  function updateTooltip() {
+    tooltip.innerText = slider.value;
+
+    // Calcola la posizione del tooltip in base al valore corrente
+    const tooltipWidth = tooltip.offsetWidth; // offsetWidth restituisce la larghezza in pixel dell'elemento tooltip.
+    //estrae il valore minimo e massimo del cursore
+    const min = slider.min;
+    const max = slider.max;
+    const value = slider.value;
+
+    const percentage = (value - min) / (max - min); //Calcola la posizione del cursore in termini di percentuale rispetto al suo intervallo totale.
+    // Imposta la posizione del tooltip
+    tooltip.style.left = `calc(${percentage * 100}% - ${tooltipWidth / 2}px)`; // Imposta la proprietà left del tooltip in modo che il tooltip segua la posizione del cursore.
+  } //La funzione calc() viene utilizzata per combinare unità diverse in CSS, come percentuali e pixel
+
+  updateTooltip();
+  slider.addEventListener("input", updateTooltip);
 };

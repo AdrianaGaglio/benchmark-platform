@@ -6,6 +6,10 @@ h6 {
   text-align: end;
 }
 
+.exit-wrapper {
+  text-align: center;
+}
+
 .toUpper {
   text-transform: uppercase;
   margin-bottom: 1rem;
@@ -23,8 +27,7 @@ h6 {
 }
 
 .exit-btn {
-  padding-block: 5rem;
-  text-align: center;
+  padding-block: 3.5rem;
 }
 
 .exit-btn .default-btn {
@@ -33,7 +36,6 @@ h6 {
 }
 
 a:hover {
-  /*replica della classe "active-btn"*/
   background-color: #00ffff;
   color: #0b113b;
   border: none;

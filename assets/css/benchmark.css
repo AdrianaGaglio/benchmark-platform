@@ -96,6 +96,7 @@
   border: none;
   border-bottom: 1px solid #d20094;
   cursor: pointer;
+  text-transform: uppercase;
 }
 
 #level:focus,
@@ -188,8 +189,6 @@
   color: rgba(144, 0, 128, 1);
   font-weight: 700;
 }
-<<<<<<< Updated upstream
-=======
 
 #sliderToolTip {
   position: relative;
@@ -212,4 +211,3 @@
 .benchmark-wrapper .alert-text {
   height: 100%;
 }
->>>>>>> Stashed changes
