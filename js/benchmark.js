@@ -8,7 +8,7 @@ let correctAnswers = 0;
 let wrongAnswers = 0;
 
 // countdown valore iniziale
-let countdownValue = 10;
+let countdownValue = 59;
 let countdownInterval;
 
 let questionsArray = [];
@@ -160,13 +160,8 @@ const startCountdown = () => {
         setTimeout(function () {
           document.querySelector(".alert-container").style.display = "none";
           document.getElementById("results-container").style.display = "block";
-<<<<<<< Updated upstream
-        }, 4000);
-      }, 500);
-=======
         }, 2000);
       }, 300);
->>>>>>> Stashed changes
     }
   }, 1000);
 };
@@ -174,7 +169,7 @@ const startCountdown = () => {
 // Funzione per resettare il countdown
 const resetCountdown = () => {
   clearInterval(countdownInterval); // Ferma l'intervallo attuale
-  countdownValue = 10; // Ripristina il valore iniziale
+  countdownValue = 59; // Ripristina il valore iniziale
   startCountdown(); // Riavvia il countdown
 };
 
