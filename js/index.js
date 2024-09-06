@@ -23,7 +23,7 @@ window.onload = () => {
     // se l'utente ha marcato il check
     if (checkbox.checked) {
       // passa alla pagina del quiz
-      window.location.href = "/benchmark-page.html";
+      window.location.href = "/benchmark.html";
     } else {
       // altrimenti mostro l'alert
       document.querySelector(".alert-container").style.display = "flex";
