@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
-    <link rel="stylesheet" href="./assets/css/welcome-page.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
 
     <title>Benchmark Platform</title>
   </head>
@@ -14,7 +14,7 @@
       <img class="logo" src="./assets/images/epicode_logo.png" alt="epicode logo" />
     </header>
     <main>
-      <h1 class="titles">Welcome to <span>your exam</span></h1>
+      <h1 class="index-h1">Welcome to <span>your exam</span></h1>
       <h3>Instructions</h3>
       <p class="intro-text">We don't expect most engineers to know the answers to all of these questions, so don't worry if you're unsure of a few of them.</p>
       <ul>
@@ -22,17 +22,17 @@
         <li>Changing browser tab or opening other windows will <span>invalidate the question</span>.</li>
         <li>This exam will take approx. <span>0-5 minutes</span>.</li>
       </ul>
-      <form>
+      <form id="proceed-form">
         <label class="custom-checkbox">
           <input type="checkbox" />
           <span class="checkmark"></span>
-          I promise to answer myselft without help from anyone
+          <span>I promise to answer myselft without help from anyone</span>
         </label>
         <button class="default-btn" type="submit">Proceed</button>
       </form>
       <div class="alert-container">
         <div class="inner-alert">
-          <span class="alert-close">&times;</span>
+          <div class="close-container"><span class="alert-close">&times;</span></div>
           <p class="alert-text">You must mark the promise to answer by yourself before to proceed!</p>
         </div>
       </div>

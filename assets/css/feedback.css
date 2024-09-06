@@ -1,0 +1,56 @@
+/* Centro il contenuto della pagina */
+.wrapper {
+  text-align: center;
+}
+
+.feedback-title {
+  margin-bottom: 1rem;
+  max-width: 100%;
+}
+
+.feedback-paragraph {
+  font-weight: 500;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  width: 80%;
+  margin-inline: auto;
+  margin-bottom: 1.5rem;
+}
+
+#comment-input {
+  border: none;
+  border-bottom: 2px solid #d20094;
+  padding: 10px 1rem;
+  margin-inline: auto;
+  display: block;
+  width: 100%;
+  max-width: 580px;
+  font-size: 1rem;
+  color: rgb(249, 247, 247);
+  background: transparent;
+  margin-bottom: 2.5rem;
+}
+
+.star-container {
+  margin: 5px;
+  margin-bottom: 2px;
+  padding: 1px;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Stile delle stelline  */
+.star {
+  display: inline-block;
+  margin-left: -4px;
+  margin-inline: 0.2rem;
+  width: 40px;
+  opacity: 0.2;
+  cursor: pointer;
+}
+
+/* Stellina evidenziata */
+.star.selected {
+  opacity: 1;
+}
