@@ -28,7 +28,7 @@
 
 /* Contenitore domande */
 #answers {
-  padding-block: 2.5rem;
+  padding-block: 1.5rem;
 }
 
 /* Div wrapper singola domanda */
@@ -43,7 +43,7 @@
 .answer {
   display: inline-block;
   vertical-align: middle;
-  width: 90%;
+  width: 300px;
   padding: 1.5rem 2.5rem;
   border-radius: 45px;
   text-align: center;
@@ -53,14 +53,8 @@
   cursor: pointer;
 }
 
-.answer-wrapper:nth-of-type(odd) {
-  text-align: right;
-  padding-right: 1.5rem;
-}
-
-.answer-wrapper:nth-of-type(even) {
-  text-align: left;
-  padding-left: 1.5rem;
+.answer-wrapper {
+  text-align: center;
 }
 
 /* Evidenzio la risposta corretta */
@@ -143,6 +137,7 @@
   width: 200px;
   margin-bottom: 1.5rem;
   margin-inline: auto;
+  text-align: center;
 }
 
 #timer-container {
@@ -193,3 +188,28 @@
   color: rgba(144, 0, 128, 1);
   font-weight: 700;
 }
+<<<<<<< Updated upstream
+=======
+
+#sliderToolTip {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+#tooltip {
+  /* background-color: rgb(255 255 255 / 0.2); */
+  background-color: transparent;
+  color: white;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  position: absolute;
+  top: 17px;
+}
+
+.benchmark-wrapper .alert-text {
+  height: 100%;
+}
+>>>>>>> Stashed changes

@@ -160,8 +160,13 @@ const startCountdown = () => {
         setTimeout(function () {
           document.querySelector(".alert-container").style.display = "none";
           document.getElementById("results-container").style.display = "block";
+<<<<<<< Updated upstream
         }, 4000);
       }, 500);
+=======
+        }, 2000);
+      }, 300);
+>>>>>>> Stashed changes
     }
   }, 1000);
 };
@@ -225,7 +230,7 @@ window.onload = () => {
               document.querySelector(".alert-container").style.display = "none";
               document.querySelector("footer").style.display = "none";
               document.getElementById("results-container").style.display = "block";
-            }, 4000);
+            }, 2000);
           } else {
             questionsLoop(questionsArray, questionNumber);
             // contatore domanda infondo alla pagina
