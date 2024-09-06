@@ -29,10 +29,10 @@
             <option value="hard">Hard</option>
           </select>
           <label class="special-label" for="question-number">How many questions?</label>
-          <!-- <div class="slider-container"> -->
-          <input id="question-number" type="range" name="howManyQuestions" min="5" max="10" value="5" step="1" />
-          <!-- <div class="tooltip" id="tooltip">5</div>
-          </div> -->
+          <div id="sliderToolTip">
+            <input id="question-number" type="range" name="howManyQuestions" min="5" max="10" value="5" step="1" />
+            <span id="tooltip">5</span>
+          </div>
           <button id="submit-btn" class="default-btn active-btn" type="submit">Let's go!</button>
         </form>
         <div id="quiz-wrapper">
@@ -63,7 +63,7 @@
               <p>2/6 questions</p>
             </div>
           </div>
-          <a class="default-btn" href="./feedback-page.html">Rate us</a>
+          <a class="default-btn" href="./feedback.html">Rate us</a>
         </div>
         <div class="alert-container">
           <div class="inner-alert">
