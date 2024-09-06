@@ -9,6 +9,13 @@ h6 {
 li {
   display: inline-block;
   padding-top: 1rem;
+  list-style: circle;
+}
+
+.final-list {
+  list-style: disc;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 .exit-wrapper {
@@ -55,4 +62,8 @@ a:hover {
 .inner-footer {
   width: 50%;
   margin-inline: auto;
+}
+
+.develop-by {
+  font-size: 1.4rem;
 }
