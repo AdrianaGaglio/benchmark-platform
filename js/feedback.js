@@ -84,6 +84,7 @@ feedbackForm.onsubmit = function (event) {
   } else {
     // altrimenti confermo sottomissione e rimando all'homepage con un delay di 3 secondi (temporaneo)
     document.querySelector(".alert-text").innerText = "Your feedback has been correctly submitted!";
+    document.querySelector(".alert-close").style.display = "none";
     document.querySelector(".alert-container").style.display = "flex";
     setTimeout(function () {
       window.location.href = "./exit.html";
