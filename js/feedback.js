@@ -21,7 +21,7 @@ const handleBtnActivation = () => {
   // aggiunto controllo caratteri minimi
   if (feedbackText.value.length >= 10 && selectedStars.length > 0) {
     feedbackButton.classList.add("active-btn");
-  } else if (feedbackText.value === "") {
+  } else if (feedbackText.value.length <= 10) {
     feedbackButton.classList.remove("active-btn");
   }
 };
@@ -85,7 +85,8 @@ feedbackForm.onsubmit = function (event) {
     document.querySelector(".alert-container").style.display = "flex";
     setTimeout(function () {
       window.location.href = "./exit.html";
-    }, 2500);
+    }, 1500);
+    feedbackText.value = "";
   }
 
   // funzione per chiudere l'alert al click sulla X
