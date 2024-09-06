@@ -44,10 +44,12 @@ window.onload = () => {
       }
     };
 
-    // funzione che abilita campo input alla selezione delle stelline
     stars[i].onclick = function () {
       selectedIndex = i;
       setStarsUpTo(i);
+      if (feedbackText.value.length >= 10) {
+        feedbackButton.classList.add("active-btn");
+      }
     };
   }
 
