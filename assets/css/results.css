@@ -1,14 +1,44 @@
-main {
+/* Contenitore risultato */
+#results-container {
+  display: none;
   text-align: center;
+  padding-block: 1.5rem;
+}
+
+/* wrapper chart + risultati */
+#center-page {
+  margin-block: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#center-page > div {
+  margin: 1.5rem;
+}
+
+#correct-answers h4,
+#wrong-answers h4 {
+  margin-bottom: 0.2rem;
+}
+
+#correct-answers {
+  text-align: start;
+}
+
+#wrong-answers {
+  text-align: end;
 }
 
 #correct-answers p,
 #wrong-answers p {
-  font-family: "Inter", sans-serif;
-  font-size: 1.2rem;
   opacity: 0.8;
-  margin-top: 0.2rem;
   font-weight: 300;
+}
+
+/* Inner chart text */
+#center-text {
+  width: 90%;
 }
 
 #center-text > p:first-child {
@@ -18,6 +48,7 @@ main {
   line-height: 1.3rem;
 }
 
+/* Testo azzurro */
 .blueSpan {
   display: block;
   color: #00ffff;
@@ -31,17 +62,13 @@ main {
   line-height: 1.3;
 }
 
-#center-page {
-  margin-block: 1.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.failed {
+  color: #c1158b;
+  font-size: 1.6rem;
+  line-height: 1.8rem;
 }
 
-#center-page > div {
-  margin: 1.5rem;
-}
-
+/* Chart */
 #outside-circle {
   width: 300px;
   height: 300px;
@@ -61,26 +88,4 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-#center-text {
-  width: 90%;
-}
-
-#correct-answers {
-  text-align: start;
-}
-
-#wrong-answers {
-  text-align: end;
-}
-
-.failed {
-  color: #c1158b;
-  font-size: 1.6rem;
-  line-height: 1.8rem;
-}
-
-#results-container {
-  display: none;
 }

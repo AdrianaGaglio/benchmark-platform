@@ -1,16 +1,37 @@
+/* main */
+
+.benchmark-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenitore quiz */
+#quiz-wrapper {
+  display: none;
+  padding-block: 1.5rem;
+}
+
+/* Testo domanda */
 #question-text {
-  font-size: 2.3rem;
-  width: 100%;
-  height: 80px;
+  font-weight: 300;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  min-height: 80px;
   text-align: center;
-  margin-inline: auto;
-  margin-bottom: 2.5rem;
 }
 
+/* Grassetto ultime 3 parole domanda */
 #question-text span {
-  font-weight: 600;
+  font-weight: 700;
 }
 
+/* Contenitore domande */
+#answers {
+  padding-block: 2.5rem;
+}
+
+/* Div wrapper singola domanda */
 .answer-wrapper {
   display: inline-block;
   width: 50%;
@@ -18,6 +39,7 @@
   margin-block: 1rem;
 }
 
+/* Div domanda */
 .answer {
   display: inline-block;
   vertical-align: middle;
@@ -41,66 +63,81 @@
   padding-left: 1.5rem;
 }
 
+/* Evidenzio la risposta corretta */
 .correct-answer {
-  /* background: linear-gradient(360deg, rgba(144, 0, 128, 1) 0%, rgba(210, 0, 148, 1) 100%); */
   background-color: green;
 }
 
+/* Evidenzio la risposta sbagliata */
 .wrong-answer {
-  /* background: linear-gradient(360deg, rgba(144, 0, 128, 1) 0%, rgba(210, 0, 148, 1) 100%); */
   background-color: red;
 }
 
-.question-counter {
+/* Form */
+.benchmark-form {
   text-align: center;
-  text-transform: uppercase;
-  font-weight: 500;
-  letter-spacing: 1px;
 }
 
-#total-questions {
-  color: rgba(144, 0, 128, 1);
-  font-weight: 700;
+.benchmark-form input,
+.benchmark-form select {
+  margin-bottom: 3rem;
 }
 
-#next-question {
-  margin-inline: auto;
-  display: block;
-  margin-top: 2rem;
-}
-
-#quiz-wrapper {
-  display: none;
-}
-
-#level {
-  padding: 0.7rem 2.5rem;
-  text-transform: uppercase;
-  background-color: transparent;
-  color: white;
-  border: 2px solid #d20094;
-  text-decoration: none;
-  margin-top: -2px;
-  margin-left: 31px;
-  margin-right: 33px;
-  max-width: 100%;
-}
-
-#level option {
-  background-color: transparent;
-  font-family: "Inter", sans-serif;
-  background-color: #0c113b !important;
-  border: 0.1px solid #0c113b;
-}
-
+/* Label del form di scelta difficoltà e num. domande */
 .special-label {
-  font-family: "Inter", sans-serif;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   display: block;
   margin-bottom: 1.5rem;
 }
 
+/* Lista scelta difficoltà */
+#level {
+  background-color: transparent;
+  color: white;
+  width: 150px;
+  padding-block: 0.3rem;
+  padding-left: 0.5rem;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #d20094;
+  cursor: pointer;
+}
+
+#level:focus,
+#level:enabled {
+  border-bottom: 1px solid #d20094;
+}
+
+/* Opzioni della lista */
+#level option {
+  background-color: transparent;
+  background-color: #0c113b !important;
+}
+
+/* Stili slider */
+#question-number {
+  display: block;
+  margin-inline: auto;
+  -webkit-appearance: none;
+  width: 200px;
+  height: 8px;
+  background: #d20094;
+  border-radius: 5px;
+  margin-bottom: 3rem;
+}
+
+#question-number::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #0e113e;
+  opacity: 75%;
+  box-shadow: inset 4px -1px 5px #f3e8e8, inset -1px 2px 5px #f3e8e8;
+  border-radius: 50%;
+}
+
+/* Contenitore countdown */
 #timer-wrapper {
   display: none;
   width: 200px;
@@ -118,6 +155,7 @@
   margin-bottom: 0.5rem;
 }
 
+/* Testo countdown */
 #counter {
   font-weight: 700;
   opacity: 0.5;
@@ -128,6 +166,7 @@
   font-weight: 300;
 }
 
+/* Barra del countdown */
 #progress-bar {
   height: 10px;
   width: 10px;
@@ -136,6 +175,21 @@
   transition: width 1s linear;
 }
 
+/* Footer */
 .benchmark-footer {
   display: none;
+}
+
+/* Conteggio domande (footer) */
+.question-counter {
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* Totale domande (footer) */
+#total-questions {
+  color: rgba(144, 0, 128, 1);
+  font-weight: 700;
 }
