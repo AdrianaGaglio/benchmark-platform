@@ -83,6 +83,7 @@
 #failed {
   color: #c1158b;
   font-size: 0.9rem;
+  margin-block: 0.5rem;
 }
 
 .result-btn:hover {
