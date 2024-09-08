@@ -24,9 +24,8 @@ const getQuestions = (level, numQuestion) => {
   questionsLoop(questionsArray, questionNumber);
 };
 
-// funzione per gestire la rotazione delle domande
-const questionsLoop = (index) => {
-  // mostro il testo della domanda
+// funzione per generare il titolo della domanda
+const getQuestionTitle = () => {
   const questionText = document.getElementById("question-text");
   const stringToManipulate = questionsArray[questionNumber].question;
   const lastThreeWords = `<span>${stringToManipulate.split(" ").slice(-3).join(" ")}</span>`;
@@ -35,6 +34,15 @@ const questionsLoop = (index) => {
     stringArray.pop();
   }
   questionText.innerHTML = stringArray.join(" ") + " " + lastThreeWords;
+  return questionText.innerHTML;
+};
+
+// funzione per gestire la rotazione delle domande
+const questionsLoop = (index) => {
+  // titolo domanda
+  const questionText = document.getElementById("question-text");
+  questionText.innerHTML = getQuestionTitle();
+  // risposte
   const answersContainer = document.getElementById("answers");
   // prendo tutte le possibili risposte correlate alla domanda
   const tempAnswersArray = [];
