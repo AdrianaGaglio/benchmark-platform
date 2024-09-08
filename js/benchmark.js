@@ -116,15 +116,18 @@ const countdownElement = document.getElementById("counter");
 const startCountdown = () => {
   const correctAnswerToCheck = Array.from(document.getElementsByClassName("answer"));
   countdownElement.innerHTML = `${countdownValue} <span>seconds remaining</span>`;
-  const progressBar = document.getElementById("progress-bar");
-  progressBar.style.width = "100%";
+  // const progressBar = document.getElementById("progress-bar");
+  // progressBar.style.width = "100%";
   countdownInterval = setInterval(() => {
     countdownValue--;
     const secondsText = countdownValue > 1 ? "<span>seconds</span>" : "<span>second</span>";
     countdownElement.innerHTML = `${countdownValue} <span>${secondsText} remaining</span> `;
     //decremento la barra del tempo
     const decrement = (countdownValue / 59) * 100;
-    progressBar.style.width = decrement + "%";
+    const currentTime = document.querySelector(".time-segment").attributes[1];
+    const currentAndRemaining = document.querySelector(".time-segment").attributes[8];
+    currentTime.value = `${decrement}`;
+    currentAndRemaining.value = `${decrement} ${100 - decrement}`;
     if (countdownValue === 0) {
       document.querySelectorAll(".answer").forEach((answer) => {
         if (answer.innerText === questionsArray[questionNumber].correct_answer) {
@@ -187,7 +190,7 @@ window.onload = () => {
       alert("You must chose a difficulty level!!!");
     } else {
       // mostro l'area dove verranno visualizzate le domande
-      document.getElementById("timer-wrapper").style.display = "block";
+      document.getElementById("timer-wrapper").style.display = "flex";
       document.getElementById("quiz-wrapper").style.display = "block";
       document.querySelector("footer").style.display = "block";
       document.querySelector("#total-questions").innerText = "/ " + numQuestion;
