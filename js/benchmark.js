@@ -13,6 +13,8 @@ let countdownInterval;
 
 let questionsArray = [];
 
+let finalResults = [];
+
 const getQuestions = (level, numQuestion) => {
   // genero array di domande in base al livello scelto
   const tempArray = questions.filter((question) => question.difficulty === level);
@@ -47,9 +49,21 @@ const checkAnswer = () => {
         correctAnswers += 1;
         // evidenzia di verde se corretta
         answer.classList.add("correct-answer");
+        finalResults.push({
+          question: questionsArray[questionNumber].question,
+          answers: questionsArray[questionNumber].incorrect_answers,
+          userAnswer: answer.innerText,
+          correct: questionsArray[questionNumber].correct_answer
+        });
       } else {
         // evidenzia di rosso se sbagliata
         answer.classList.add("wrong-answer");
+        finalResults.push({
+          question: questionsArray[questionNumber].question,
+          answers: questionsArray[questionNumber].incorrect_answers,
+          userAnswer: answer.innerText,
+          correct: questionsArray[questionNumber].correct_answer
+        });
         wrongAnswers += 1;
         // e fa vedere qual è quella corretta
         document.querySelectorAll(".answer").forEach((answer) => {
@@ -64,6 +78,12 @@ const checkAnswer = () => {
     if (answerWrap.childNodes[0].innerText === questionsArray[questionNumber].correct_answer && countdownValue === 0) {
       answerWrap.childNodes[0].classList.add("correct-answer");
       wrongAnswers += 1;
+      finalResults.push({
+        question: questionsArray[questionNumber].question,
+        answers: questionsArray[questionNumber].incorrect_answers,
+        userAnswer: null,
+        correct: questionsArray[questionNumber].correct_answer
+      });
     }
   });
 };
@@ -215,6 +235,30 @@ function updateTooltip() {
   tooltip.style.left = `calc(${percentage * 100}% - ${tooltipWidth / 2}px)`; // Imposta la proprietà left del tooltip in modo che il tooltip segua la posizione del cursore.
 } //La funzione calc() viene utilizzata per combinare unità diverse in CSS, come percentuali e pixel
 
+// genero report finale
+
+const report = () => {
+  const report = document.getElementById("report");
+  for (let i = 0; i < finalResults.length; i++) {
+    const questionContainer = document.createElement("div");
+    const questionText = document.createElement("p");
+    questionText.innerText = eval(i + 1).toString() + " - " + finalResults[i].question;
+    questionContainer.appendChild(questionText);
+    const answersList = document.createElement("ul");
+    const correct = document.createElement("li");
+    correct.innerText = finalResults[i].correct;
+    answersList.appendChild(correct);
+    questionContainer.appendChild(answersList);
+    report.appendChild(questionContainer);
+    for (let j = 0; j < finalResults[i].answers.length; j++) {
+      const currentQuestion = finalResults[i];
+      const otherAnswers = document.createElement("li");
+      otherAnswers.innerText = currentQuestion.answers[j];
+      answersList.appendChild(otherAnswers);
+    }
+  }
+};
+
 window.onload = () => {
   // mostro le domande successivamente alla scelta del livello di difficoltà
   const levelChoise = document.querySelector("form");
@@ -251,6 +295,9 @@ window.onload = () => {
           document.querySelector(".alert-container").style.display = "none";
           document.querySelector("footer").style.display = "none";
           document.getElementById("results-container").style.display = "block";
+          if (document.getElementById("results-container").style.display === "block") {
+            report();
+          }
         }, 2000);
       } else {
         resetCountdown();
