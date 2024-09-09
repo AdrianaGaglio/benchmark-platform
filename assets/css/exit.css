@@ -33,14 +33,15 @@ h6 {
 .exit-btn .default-btn {
   display: inline-block;
   margin-inline: 1rem;
+  font-weight: 700;
 }
 
 a:hover {
   background-color: #00ffff;
   color: #0b113b;
-  border: none;
+  border: 2px solid #00ffff;
   box-shadow: 1px 1px 25px #00ffff;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 .exit-footer {
